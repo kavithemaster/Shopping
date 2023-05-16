@@ -10,11 +10,11 @@ const Product = ({ navigation }) => {
     const { product, setProduct, favourites, setFavourites } = useContext(AppContext)
 
     const updateFav = (item) => {
-        setProduct((prev) => {
-            let temp = { ...prev }
-            temp.fav = !temp.fav
-            return temp
-        })
+        // setProduct((prev) => {
+        //     let temp = { ...prev }
+        //     temp.fav = !temp.fav
+        //     return temp
+        // })
         let temp = []
         if (favourites.length) {
             if (favourites.includes(item)) {
@@ -53,6 +53,7 @@ const Product = ({ navigation }) => {
                                     onPress={() => {
                                         let temp = product
                                         temp.fav = !temp.fav
+                                        setProduct(temp)
                                         updateFav(temp)
                                     }}
                                     style={{ color: "black", alignSelf: "flex-end", marginHorizontal: 8 }}
