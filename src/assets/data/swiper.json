@@ -2,7 +2,7 @@
     "swiper": [
         {
             "id": 1,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://www.polytechnichub.com/wp-content/uploads/2017/04/Electronic.jpg",
             "name":"Electronics"
         },
         {
@@ -12,12 +12,12 @@
         },
         {
             "id": 3,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://hips.hearstapps.com/hmg-prod/images/20200224-fd-acquisition-bag-shots-overhead-bag-spill-formica-34082-1658506440.jpg",
             "name":"Grocery"
         },
         {
             "id": 4,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://www.91-cdn.com/hub/wp-content/uploads/2019/10/Top-20-mobile-phones-in-India-in-September-2019-91mobiles-FB-feat.jpg",
             "name":"Mobiles"
         }
     ],
@@ -25,28 +25,28 @@
     "electronics": [
         {
             "id":1,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://i0.wp.com/www.smartprix.com/bytes/wp-content/uploads/2022/04/desert-cooler.jpg",
             "amount":10000,
             "name":"AirColler",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":2,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://5.imimg.com/data5/PO/AA/MY-58701797/desktop-500x500.jpg",
             "amount":14000,
             "name":"Computer",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":3,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://cdn.thewirecutter.com/wp-content/media/2022/10/laptopstopicpage-2048px-2102-2x1-1.jpg",
             "amount":10500,
             "name":"Laptop",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":4,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://images.news18.com/ibnlive/uploads/2014/09/speakers-020914.jpg",
             "amount":15000,
             "name":"Speaker",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
@@ -55,28 +55,28 @@
     "fashion": [
         {
             "id":1,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://cdn.shopify.com/s/files/1/0094/6326/7379/files/Stylish_linen_blazer_for_men_600x600.jpg",
             "amount":10530,
             "name":"Blazer",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":2,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://img.freepik.com/free-photo/stack-clothes-white-background-closeup_93675-132644.jpg",
             "amount":143700,
             "name":"Jeans",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":3,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://www.kattam.in/cdn/shop/products/SemiBridalTempleJewellery_2_1000x.jpg",
             "amount":10200,
             "name":"Jewllery",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":4,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://m.media-amazon.com/images/I/71DBklVte9L._UX679_.jpg",
             "amount":15050,
             "name":"Shirts",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
@@ -85,58 +85,62 @@
     "grocery": [
         {
             "id":1,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://www.allrecipes.com/thmb/DMbzPe6lZD8Y02PlMZJR_PsGDU8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/6788-amish-white-bread-DDMFS-4x3-6faa1e552bdb4f6eabdd7791e59b3c84.jpg",
             "amount":34530,
             "name":"Bread",
+            "disabled":true,
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":2,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-1foodgroups_dairy_detailfeature.jpg",
             "amount":143700,
             "name":"Dairy",
+            "disabled":true,
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":3,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://facts.net/wp-content/uploads/2022/06/different-types-of-meat-730x384.jpg",
             "amount":10200,
             "name":"Meat",
+            "disabled":true,
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":4,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://www.allrecipes.com/thmb/oWrKte1auLsqVEcnxa8z1vCZdDU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg",
             "amount":15050,
             "name":"Pasta",
+            "disabled":true,
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         }
     ],
     "mobiles": [
         {
             "id":1,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://m.media-amazon.com/images/I/413u56t+CiL._SY300_SX300_.jpg",
             "amount":10530,
             "name":"OnePlus",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":2,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://m.media-amazon.com/images/I/8104evx11QL._SX679_.jpg",
             "amount":143700,
             "name":"Oppo",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":3,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://m.media-amazon.com/images/I/411yU+n3UkL._SY300_SX300_.jpg",
             "amount":10200,
             "name":"Redmi",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
         },
         {
             "id":4,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg",
+            "req":"https://m.media-amazon.com/images/I/61ODIFuCgAL._SX679_.jpg",
             "amount":15050,
             "name":"Vivo",
             "content":"Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
@@ -145,15 +149,33 @@
     "avatar":[
         {
             "id":1,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg"
+            "req":"https://m.media-amazon.com/images/I/8104evx11QL._SX679_.jpg"
         },
         {
             "id":2,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg"
+            "req":"https://www.kattam.in/cdn/shop/products/SemiBridalTempleJewellery_2_1000x.jpg"
         },
         {
             "id":3,
-            "req":"https://thumbs.dreamstime.com/z/fashion-pretty-cool-youngwith-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg"
+            "req":"https://cdn.shopify.com/s/files/1/0094/6326/7379/files/Stylish_linen_blazer_for_men_600x600.jpg"
+        },
+        {
+            "id":4,
+            "req":"https://cdn.thewirecutter.com/wp-content/media/2022/10/laptopstopicpage-2048px-2102-2x1-1.jpg"
+        }
+    ],
+    "offers":[
+        {
+            "id":1,
+            "req":"https://www.indifi.com/blog/wp-content/uploads/2020/03/Offers-To-Give-To-Customers-For-e-Commerce-Sellers-500x281.jpg"
+        },
+        {
+            "id":2,
+            "req":"https://img.freepik.com/free-psd/e-commerce-discount-facebook-template_23-2149937090.jpg"
+        },
+        {
+            "id":3,
+            "req":"https://www.mdgsolutions.com/wp-content/uploads/2014/12/1300-blog-5-ecommerce-offers.jpg"
         },
         {
             "id":4,

@@ -7,6 +7,12 @@ const AppContext = createContext({
     setProduct: () => {},
     favourites:{},
     setFavourites:()=>{},
+    data: {},
+    setData: () => {},
+    load: {},
+    setLoad: () => {},
+    login: {},
+    setLogin: () => {}
 })
 
 export default AppContext

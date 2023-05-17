@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity, ScrollView, ImageBackground } from "react-native";
+import { View, Text, FlatList, Image, TouchableOpacity, ScrollView} from "react-native";
 import { Avatar, ThemeConsumer, Header } from "react-native-elements";
 import Data from '../assets/data/swiper.json'
-import theme from '../styles/themes';
 
 const Home = ({ navigation }) => {
     const swiper = Data.swiper
@@ -11,15 +10,15 @@ const Home = ({ navigation }) => {
         <ThemeConsumer>
             {
                 ({ theme }) => (
-                    <View style={{ backgroundColor: "white" }}>
+                    <View style={theme.homeStyles.mainContainer}>
 
                         <Header
                             centerComponent={{ text: "Shopping", style: theme.homeStyles.header }}
                             placement='left'
-
                         />
+                        
                         <ScrollView>
-                            <View style={{ top: 15, marginHorizontal:5, borderRadius:20, width:400 }}>
+                            <View style={theme.homeStyles.swiper}>
                                 <FlatList
                                     data={swiper}
                                     keyExtractor={item => item.id}
@@ -28,14 +27,14 @@ const Home = ({ navigation }) => {
                                     renderItem={({ item }) => {
                                         return (
                                             <View>
-                                                <Image source={{ uri: item.req }} style={{ height: 200, width: 400, borderRadius:20 , marginRight:5}} />
+                                                <Image source={{ uri: item.req }} style={theme.homeStyles.swiperImage} />
                                             </View>
                                         )
                                     }}
                                 />
                             </View>
-                            
-                            <View style={{ top: 35, height: 150 }}>
+
+                            <View style={theme.homeStyles.avatarContain}>
                                 <Text style={theme.homeStyles.topText}> Top Selling </Text>
                                 <FlatList
                                     data={avatar}
@@ -44,12 +43,12 @@ const Home = ({ navigation }) => {
                                     showsHorizontalScrollIndicator={false}
                                     renderItem={({ item }) => {
                                         return (
-                                            <View style={{ marginHorizontal: 8 , paddingLeft:10}}>
+                                            <View style={theme.homeStyles.avatarView}>
                                                 <Avatar
                                                     rounded
                                                     source={{ uri: item.req }}
                                                     size={80}
-                                                    avatarStyle={{ height: 100 }}
+                                                    avatarStyle={theme.homeStyles.avatar}
                                                 />
                                             </View>
                                         )
@@ -69,16 +68,16 @@ const Home = ({ navigation }) => {
                                                 <View>
                                                     <TouchableOpacity onPress={() => navigation.navigate(item.name)}>
                                                         <View>
-                                                            <Text style={{fontSize:20, color:"black", paddingLeft:10, fontWeight:"900"}}>{item.name}</Text>
+                                                            <Text style={theme.homeStyles.nameText}>{item.name}</Text>
                                                         </View>
 
 
-                                                        <View style={{marginHorizontal:"10%", marginVertical:10,width:"80%", elevation:20,borderRadius:10}}>
-                                                        <Image 
-                                                        source={{ uri: item.req }} 
-                                                        style={{ height: 140, width: "100%" , borderRadius:10}} 
-                                                        
-                                                        />
+                                                        <View style={theme.homeStyles.imageContain}>
+                                                            <Image
+                                                                source={{ uri: item.req }}
+                                                                style={theme.homeStyles.image}
+
+                                                            />
                                                         </View>
 
 
@@ -89,7 +88,7 @@ const Home = ({ navigation }) => {
                                     }}
                                 />
                             </View>
-                            <View style={{ marginTop: 100, }}>
+                            <View style={theme.homeStyles.gap}>
                             </View>
                         </ScrollView>
 

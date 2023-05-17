@@ -1,11 +1,20 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import { Image, ThemeConsumer } from "react-native-elements";
 
 const Splash = () => {
-    return(
-        <View>
-            <Text>SignIn Page</Text>
-        </View>
+    return (
+        <ThemeConsumer>
+            {
+                ({ theme }) => (
+                    <View style={theme.splashStyles.mainContainer}>
+                        <Image
+                            style={theme.splashStyles.image}
+                            source={{ uri: "https://static.wixstatic.com/media/570bfa_4a131be813c04e1591243a9343e353bb~mv2.gif" }} />
+                    </View>
+                )
+            }
+        </ThemeConsumer>
     )
 }
 

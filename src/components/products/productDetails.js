@@ -1,20 +1,14 @@
 import React, { useContext, useState } from "react";
-import { View, Text, FlatList, ImageBackground, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text,TouchableOpacity, ScrollView } from "react-native";
 import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/MaterialIcons"
 import AppContext from "../../shared/context";
-import UpdateProfile from "../user/updateProfile";
 
 const Product = ({ navigation }) => {
 
-    const { product, setProduct, favourites, setFavourites } = useContext(AppContext)
+    const { product, setProduct, favourites, setFavourites, cart, setCart } = useContext(AppContext)
 
     const updateFav = (item) => {
-        // setProduct((prev) => {
-        //     let temp = { ...prev }
-        //     temp.fav = !temp.fav
-        //     return temp
-        // })
         let temp = []
         if (favourites.length) {
             if (favourites.includes(item)) {
@@ -35,17 +29,50 @@ const Product = ({ navigation }) => {
 
     }
 
-    console.log(favourites);
+    const addToCart = () => {
+        if (cart.length) {
+            let flag = false
+            cart.map((item) => {
+                if (item.name == product.name) {
+                    flag = true
+                }
+            })
+            if (flag) {
+                let temp = []
+                cart.map((item) => {
+                    if (item.id == product.id) {
+                        let prod = item
+                        prod.count = product.count
+                        temp.push(prod)
+                    }
+                    else {
+                        temp.push(item)
+                    }
+                })
+                setCart(temp)
+            }
+            else {
+                setCart(pre => [...pre, product])
+            }
+        }
+        else {
+            setCart(pre => [...pre, product])
+        }
+    }
+        
+
+
     return (
         <ThemeConsumer>
             {
                 ({ theme }) =>
-                    <View style={{ backgroundColor: "white", flex: 1 }}>
+                    <View style={theme.productDetails.mainContainer}>
                         <Header
                             leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
+                           
                         />
                         <ScrollView>
-                            <View style={{ marginTop: 10 }}>
+                            <View style={theme.productDetails.container}>
 
                                 <Icon
                                     name={product.fav ? "favorite" : "favorite-border"}
@@ -56,62 +83,65 @@ const Product = ({ navigation }) => {
                                         setProduct(temp)
                                         updateFav(temp)
                                     }}
-                                    style={{ color: "black", alignSelf: "flex-end", marginHorizontal: 8 }}
+                                    style={theme.productDetails.icon}
                                 />
 
-                                <View style={{ elevation: 40, borderRadius: 10, top: 10 }}>
-                                    <Image source={{ uri: product.req }} style={{ width: "96%", height: 280, left: 9 }} />
+                                <View style={theme.productDetails.imgaeContain}>
+                                    <Image source={{ uri: product.req }} style={theme.productDetails.image} />
                                 </View>
 
 
-                                <View style={{ flexDirection: "row", justifyContent: "space-evenly", top: 45 }}>
+                                {
+                                    (product.disabled) ? null :
+                                    <View style={theme.productDetails.topContent}>
                                     <View >
-                                        <TouchableOpacity style={{ width: 70, borderWidth: 2 }}>
-                                            <Text style={{ fontSize: 20, textAlign: "center", color: "black" }}>White</Text>
+                                        <TouchableOpacity style={theme.productDetails.opacity}>
+                                            <Text style={theme.productDetails.text}>White</Text>
                                         </TouchableOpacity>
                                     </View>
                                     <View >
-                                        <TouchableOpacity style={{ width: 70, borderWidth: 2 }}>
-                                            <Text style={{ fontSize: 20, textAlign: "center", color: "black" }}>Black</Text>
+                                        <TouchableOpacity style={theme.productDetails.opacity}>
+                                            <Text style={theme.productDetails.text}>Gray</Text>
                                         </TouchableOpacity>
                                     </View>
                                     <View >
-                                        <TouchableOpacity style={{ width: 70, borderWidth: 2 }}>
-                                            <Text style={{ fontSize: 20, textAlign: "center", color: "black" }}>Gray</Text>
+                                        <TouchableOpacity style={theme.productDetails.opacity}>
+                                            <Text style={theme.productDetails.text}>Black</Text>
                                         </TouchableOpacity>
                                     </View>
-
-
                                 </View>
+                                }
 
-                                <View style={{ marginTop: 60 }}>
-                                    <Text style={{ fontSize: 20, color: "black", padding: 10 }} >
+
+                                <View style={theme.productDetails.nameContain}>
+                                    <Text style={theme.productDetails.nameText} >
                                         {product.name}
                                     </Text>
                                 </View>
 
 
                                 <View >
-                                    <Text style={{ fontSize: 18, color: "black", padding: 14, justifyContent: "center" }}>
+                                    <Text style={theme.productDetails.contentText}>
                                         {product.content}
                                     </Text>
                                 </View>
 
-                                <View style={{ fontSize: 20, color: "black", padding: 14, justifyContent: "center" }}>
-                                    <Text style={{ fontSize: 20, color: "black" }}>
+                                <View style={theme.productDetails.amountContain}>
+                                    <Text style={theme.productDetails.nameText}>
                                         Rs.{product.amount}
                                     </Text>
                                 </View>
 
                                 <View >
                                     <Button
-                                        title={"Buy it"}
-                                        titleStyle={{ fontSize: 20, color: "white" }}
-                                        buttonStyle={{ marginHorizontal: 130 }}
+                                        title={"Add to Cart"}
+                                        titleStyle={theme.productDetails.title}
+                                        buttonStyle={theme.productDetails.button}
+                                        onPress={() => addToCart()}
                                     />
                                 </View>
 
-                                <View style={{ marginBottom: 20 }}>
+                                <View style={theme.productDetails.gap}>
 
                                 </View>
 

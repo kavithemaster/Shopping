@@ -15,6 +15,9 @@ const Electronics = ({ navigation }) => {
     const [search, setSearch] = useState("")
     const [result, setResult] = useState([...electronics])
 
+    let tem = []
+    cart.map((item) => tem.push(item.name))
+
     const addtocart = item => {
         item['count'] = 1
         setSelect(item)
@@ -42,7 +45,7 @@ const Electronics = ({ navigation }) => {
             if (cart.length) {
                 let flag = false
                 cart.map((item) => {
-                    if (item.id == select.id) {
+                    if (item.name == select.name) {
                         flag = true
                     }
                 })
@@ -62,6 +65,7 @@ const Electronics = ({ navigation }) => {
                 }
                 else {
                     setCart(pre => [...pre, select])
+
                 }
             }
             else {
@@ -69,6 +73,7 @@ const Electronics = ({ navigation }) => {
             }
         }
     }, [select])
+
 
     return (
         <ThemeConsumer>
@@ -109,8 +114,8 @@ const Electronics = ({ navigation }) => {
                                         }
 
                                         return (
-                                            //Main View
-                                            <View style={{ flex: 1, flexDirection: "row", marginVertical: 5, elevation: 20, marginHorizontal: 10, borderRadius: 20, backgroundColor: "white", paddingHorizontal: 10, paddingVertical: 10 }}>
+                                            //Main View                                          
+                                            <View style={theme.electronicStyles.mainContain}>
 
                                                 <View style={theme.electronicStyles.imageConatiner}>
                                                     <TouchableOpacity onPress={() => { setProduct(item), navigation.navigate("Product") }}>
@@ -121,25 +126,25 @@ const Electronics = ({ navigation }) => {
                                                     </TouchableOpacity>
                                                 </View>
 
-                                                <View style={{ flexDirection: "column", justifyContent: "space-between", flex: 0.6, paddingLeft: 10, paddingVertical: 6 }}>
+                                                <View style={theme.electronicStyles.contain}>
                                                     <View>
-                                                        <Text style={{ fontSize: 20, color: "black" }} onPress={() => { setProduct(item), navigation.navigate("Product") }}>{item.name}</Text>
+                                                        <Text style={theme.electronicStyles.text} onPress={() => { setProduct(item), navigation.navigate("Product") }}>{item.name}</Text>
                                                     </View>
 
-                                                    <View style={{ flexDirection: "row", justifyContent: "space-between", width: '60%' }}>
+                                                    <View style={theme.electronicStyles.amountContain}>
                                                         <View >
-                                                            <Text style={{ fontSize: 20, color: "black" }}>Rs.{item.amount}</Text>
+                                                            <Text style={theme.electronicStyles.text}>Rs.{item.amount}</Text>
                                                         </View>
 
-                                                        <View style={{ flexDirection: "row" }}>
-                                                            <Text style={{ fontSize: 20, paddingLeft: 16, color: "black" }}>4.1</Text>
-                                                            <Icon name="star-half" size={30} style={{ color: "black" }} />
+                                                        <View style={theme.electronicStyles.ratingContain}>
+                                                            <Text style={theme.electronicStyles.ratingText}>4.1</Text>
+                                                            <Icon name="star-half" size={30} style={theme.electronicStyles.ratingStar} />
                                                         </View>
 
                                                     </View>
                                                     <View >
                                                         <Button
-                                                            titleStyle={{ fontSize: 20, color: "white" }}
+                                                            titleStyle={theme.electronicStyles.title}
                                                             onPress={() => addtocart(item)}
                                                             title={"Add to Cart"} />
                                                     </View>
