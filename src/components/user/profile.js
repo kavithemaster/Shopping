@@ -77,10 +77,14 @@ const Profile = () => {
 
                             <View style={theme.profileStyles.contain}>
                                 <View>
-                                    <Text style={theme.profileStyles.containText}>My Orders</Text>
+                                    <Text style={theme.profileStyles.containText}
+                                    onPress={()=> navigation.navigate("MyOrders")}
+                                    >My Orders</Text>
                                 </View>
                                 <View>
-                                    <Text style={theme.profileStyles.containText}>My Wishlist</Text>
+                                    <Text style={theme.profileStyles.containText}
+                                    onPress={()=> navigation.navigate("MyWishlist")}
+                                    >My Wishlist</Text>
                                 </View>
                             </View>
                             <TouchableOpacity style={theme.profileStyles.logoutMainContainer}

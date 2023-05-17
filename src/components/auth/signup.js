@@ -41,7 +41,8 @@ const SignUp = ({navigation}) => {
 
     // Posting Data to firebase 
     const onAddHandler = async (values) => {
-        const res = await axios.post("https://beast-4e018-default-rtdb.firebaseio.com//shopping.json", values)
+        const data = {...values, cart:"kokarakoo koli", orders: "kokarakoo orders"}
+        const res = await axios.post("https://beast-4e018-default-rtdb.firebaseio.com//shopping.json", data)
         navigation.navigate("SignIn")
 
 

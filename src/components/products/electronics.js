@@ -118,7 +118,14 @@ const Electronics = ({ navigation }) => {
                                             <View style={theme.electronicStyles.mainContain}>
 
                                                 <View style={theme.electronicStyles.imageConatiner}>
-                                                    <TouchableOpacity onPress={() => { setProduct(item), navigation.navigate("Product") }}>
+                                                    <TouchableOpacity onPress={() => { 
+                                                        let temp = item
+                                                        if(!temp.count) {
+                                                            temp['count'] = 1 
+                                                        }
+                                                        setProduct(temp),
+                                                         navigation.navigate("Product")
+                                                         }}>
                                                         <Image
                                                             source={{ uri: item.req }}
                                                             style={theme.electronicStyles.image}
