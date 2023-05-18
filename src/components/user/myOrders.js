@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Text, View, ScrollView , Image} from "react-native";
 import { Header, ThemeConsumer } from "react-native-elements";
 
-const MyOrders = () => {
+const MyOrders = ({navigation}) => {
 
     const [orderData, setOrderData] = useState([])
 
@@ -19,7 +19,6 @@ const MyOrders = () => {
             temp.push(item[0])
 
         })
-        console.log(temp)
         setOrderData([...temp])
     }
 
@@ -34,7 +33,7 @@ const MyOrders = () => {
                     <View>
                         <Header
                             centerComponent={{
-                                text: "My Favourites",
+                                text: "My Orders",
                                 style: theme.MyOrders.headerCenter
                             }}
                             leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
@@ -61,7 +60,6 @@ const MyOrders = () => {
                                                 </View>
 
                                                 <View style={theme.MyOrders.cart}>
-
                                                     <View>
                                                         <Text style={theme.MyOrders.amountText}>
                                                             Rs.{item.amount}
@@ -74,6 +72,9 @@ const MyOrders = () => {
 
                                     }) : null
                                 }
+                                <View style={{marginTop:200}}>
+
+                                </View>
                             </ScrollView>
 
                         </View>

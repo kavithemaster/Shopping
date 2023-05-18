@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Text, View, ScrollView } from "react-native";
-import { ThemeConsumer, Header, Image , Button} from "react-native-elements";
+import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
 import AppContext from "../../shared/context";
 
-const MyWishlist = () => {
-    const { favourites , setFavourites} = useContext(AppContext)
+const MyWishlist = ({ navigation }) => {
+    const { favourites, setFavourites } = useContext(AppContext)
 
     const removeProduct = (name) => {
         let temp = []
@@ -23,11 +23,10 @@ const MyWishlist = () => {
                     <View>
                         <Header
                             centerComponent={{
-                                text: "My Favourites",
+                                text: "My Wishlist",
                                 style: theme.myWishlist.headerCenter
                             }}
                             leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
-                           
                         />
                         {
                             favourites.length ?
@@ -38,8 +37,6 @@ const MyWishlist = () => {
                                                 <View
                                                     key={index}
                                                     style={theme.myWishlist.mainContainer}>
-
-
                                                     <View >
                                                         <Image source={{ uri: item.uri[0] }} style={theme.myWishlist.image} />
                                                     </View>
@@ -58,7 +55,7 @@ const MyWishlist = () => {
                                                             </Text>
                                                         </View>
 
-                                            
+
 
                                                         <View >
                                                             <Button
@@ -82,17 +79,17 @@ const MyWishlist = () => {
 
                                     </View>
                                 </ScrollView> : <View style={theme.myWishlist.emptyCart}>
-                                    <Text style={theme.myWishlist.emptyText}>Your Favourites list is Empty</Text>
+                                    <Text style={theme.myWishlist.emptyText}>Your Wishlist list is Empty</Text>
                                     <Image
                                         style={theme.myWishlist.emptyImage}
-                                        source={{ uri: "https://cdn.dribbble.com/users/2070959/screenshots/5881187/copy_2.gif"}} />
+                                        source={{ uri: "https://cdn.dribbble.com/users/2070959/screenshots/5881187/copy_2.gif" }} />
                                 </View>
                         }
                     </View>
                 )
             }
         </ThemeConsumer>
-     )
+    )
 }
 
 export default MyWishlist

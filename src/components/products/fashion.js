@@ -27,7 +27,7 @@ const Fashion = ({ navigation }) => {
         if (text.length) {
             setSearch(text)
             let match = []
-            electronics.map((item) => {
+            fashion.map((item) => {
                 if (item.name.toLowerCase().includes(text.toLowerCase())) {
                     match.push(item)
                 }
@@ -36,7 +36,7 @@ const Fashion = ({ navigation }) => {
         }
         else {
             setSearch(text)
-            setResult(...electronics)
+            setResult(...fashion)
         }
     }
 
@@ -123,6 +123,9 @@ const Fashion = ({ navigation }) => {
                                                         if (!temp.count) {
                                                             temp['count'] = 1
                                                         }
+                                                        if(item.add == null){
+                                                            item['add'] = false
+                                                        }
                                                         setProduct(item),
                                                             navigation.navigate("Product"
                                                             )
@@ -153,8 +156,12 @@ const Fashion = ({ navigation }) => {
                                                     <View >
                                                         <Button
                                                             titleStyle={theme.fashionStyles.title}
-                                                            onPress={() => addtocart(item)}
-                                                            title={"Add to Cart"} />
+                                                            onPress={() => {addtocart(item)  
+                                                                let temp = item
+                                                                temp.add = true
+                                                                fashion[temp.id - 1] = temp
+                                                            }}
+                                                            title={item.add ? "Added to Cart" : "Add to Cart"} />
                                                     </View>
 
                                                 </View>

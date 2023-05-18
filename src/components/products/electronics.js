@@ -112,6 +112,9 @@ const Electronics = ({ navigation }) => {
                                         if (item.fav == null) {
                                             item['fav'] = false
                                         }
+                                        if(item.add == null){
+                                            item['add'] = false
+                                        }
 
                                         return (
                                             //Main View                                          
@@ -152,8 +155,12 @@ const Electronics = ({ navigation }) => {
                                                     <View >
                                                         <Button
                                                             titleStyle={theme.electronicStyles.title}
-                                                            onPress={() => addtocart(item)}
-                                                            title={"Add to Cart"} />
+                                                            onPress={() => {addtocart(item)  
+                                                                let temp = item
+                                                                temp.add = true
+                                                                electronics[temp.id - 1] = temp
+                                                            }}
+                                                            title={item.add ? "Added to Cart" : "Add to Cart"} />
                                                     </View>
 
                                                 </View>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/MaterialIcons"
@@ -9,6 +9,16 @@ const Product = ({ navigation }) => {
     const { product, setProduct, favourites, setFavourites, cart, setCart } = useContext(AppContext)
 
     const colors = ["white", "grey", "black"]
+
+    const [exist, setExist] = useState(false)
+
+    useEffect(() => {
+        cart.map((item) => {
+            if(item == product) {
+                setExist(true)
+            }
+        })
+    }, [])
 
     const [index, setIndex] = useState(0)
 
@@ -134,10 +144,11 @@ const Product = ({ navigation }) => {
 
                                 <View >
                                     <Button
-                                        title={"Add to Cart"}
+                                        title={exist ? "Added to cart" : "Add to Cart"}
                                         titleStyle={theme.productDetails.title}
                                         buttonStyle={theme.productDetails.button}
-                                        onPress={() => addToCart()}
+                                        onPress={() => {addToCart()}}
+                                        
                                     />
                                 </View>
 

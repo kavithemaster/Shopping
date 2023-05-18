@@ -27,7 +27,7 @@ const Mobiles = ({ navigation }) => {
         if (text.length) {
             setSearch(text)
             let match = []
-            electronics.map((item) => {
+            mobiles.map((item) => {
                 if (item.name.toLowerCase().includes(text.toLowerCase())) {
                     match.push(item)
                 }
@@ -36,7 +36,7 @@ const Mobiles = ({ navigation }) => {
         }
         else {
             setSearch(text)
-            setResult(...electronics)
+            setResult(...mobiles)
         }
     }
 
@@ -121,6 +121,9 @@ const Mobiles = ({ navigation }) => {
                                                         if (!temp.count) {
                                                             temp['count'] = 1
                                                         }
+                                                        if (item.add == null) {
+                                                            item['add'] = false
+                                                        }
                                                         setProduct(item),
                                                             navigation.navigate("Product")
                                                     }}>
@@ -150,8 +153,13 @@ const Mobiles = ({ navigation }) => {
                                                     <View >
                                                         <Button
                                                             titleStyle={theme.mobileStyles.title}
-                                                            onPress={() => addtocart(item)}
-                                                            title={"Add to Cart"} />
+                                                            onPress={() => {
+                                                                addtocart(item)
+                                                                let temp = item
+                                                                temp.add = true
+                                                                mobiles[temp.id - 1] = temp
+                                                            }}
+                                                            title={item.add ? "Added to Cart" : "Add to Cart"} />
                                                     </View>
 
                                                 </View>

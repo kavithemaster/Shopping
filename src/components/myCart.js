@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Text, View, ScrollView } from "react-native";
 import Icons from "react-native-vector-icons/MaterialCommunityIcons"
 import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
@@ -7,47 +7,75 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Moment from "moment"
 import { ActivityIndicator } from "react-native-paper";
+import {useIsFocused} from "@react-navigation/native";
 
 const MyCart = ({ navigation }) => {
 
     const { cart, setCart } = useContext(AppContext)
+    const [load, setLoad] = useState(false)
 
-    useEffect(() => {
-        if(cart.length)
-            addToCart()
-    },[cart])
+    const focused = useIsFocused()
+
+    // useEffect(() => {
+    //     addToCart()
+    // }, [cart])
 
     useEffect(() => {
         getCartData()
-    },[])
+        setTimeout(() => {
+            setLoad(true)
+        }, 3000);
+    }, [])
+
+    // useEffect(()=>{
+    //     console.log("cart details", cart);
+    // },[cart])
 
     const getCartData = async () => {
-
+        // console.log("Inside get")
         const key = await AsyncStorage.getItem("userKey")
         const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/cart.json`)
         let temp = []
-        temp.push(res.data.cart[0])
-        setCart(temp)
-
+        // console.log(res.data.cart.length)
+        res.data.cart.map((item) => {
+            console.log(item)
+            temp.push(item)
+        })
+        setCart([...temp])
     }
 
     const addToCart = async () => {
-
+        // console.log("from add", cart)
         const key = await AsyncStorage.getItem("userKey")
-
-        const res = await axios.put(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/cart.json`, {cart})
-
-        getCartData()
+        await axios.put(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/cart.json`,{ cart})
+        .then((result) => 
+        {
+            // console.log(Object.keys(result.data.cart).length)
+        }
+        ).catch((err)=>{
+            // console.log(err)
+        })
     }
 
     const removeProduct = (name) => {
         let temp = []
+        if(cart.length > 1){
+
         cart.map((item) => {
             if (item.name != name) {
                 temp.push(item)
             }
         })
+        // console.log("temp",temp);
         setCart([...temp])
+        addToCart()
+        }
+        else {
+            setCart([...temp])
+            //  console.log("cancel");
+            addToCart()
+        }
+        
     }
 
     const updateCount = (item) => {
@@ -90,10 +118,12 @@ const MyCart = ({ navigation }) => {
                             rightComponent={cart.length ? { icon: "check", size: 32, onPress: () => placeOrder() } : null}
                         />
                         {
-                            cart.length ?
+                            load ? 
+                            cart.length ? 
+                            <View>
                                 <ScrollView >
                                     {
-                                        cart.length ? cart.map((item, index) => {
+                                        cart.map((item, index) => {
                                             return (
                                                 <View
                                                     key={index}
@@ -141,7 +171,11 @@ const MyCart = ({ navigation }) => {
                                                                 title={"Remove cart"}
                                                                 titleStyle={theme.myCartStyles.title}
                                                                 buttonStyle={theme.myCartStyles.button}
-                                                                onPress={() => removeProduct(item.name)}
+                                                                onPress={() => {
+                                                                    removeProduct(item.name)
+                                                                    // addToCart()
+                                                                    // getCartData()
+                                                                }}
                                                             />
                                                         </View>
 
@@ -152,19 +186,24 @@ const MyCart = ({ navigation }) => {
 
 
                                             )
-                                        }) : <View>
-                                            <ActivityIndicator  />
-                                        </View>
+                                        })
                                     }
                                     <View style={theme.myCartStyles.gap}>
 
                                     </View>
-                                </ScrollView> : <View style={theme.myCartStyles.emptyCart}>
-                                    <Text style={theme.myCartStyles.emptyText}>Your Cart is Empty</Text>
+                                </ScrollView>
+                            </View> : 
+                            <View>
+                                <Text style={theme.myCartStyles.emptyText}>Your Cart is Empty</Text>
                                     <Image
                                         style={theme.myCartStyles.emptyImage}
                                         source={{ uri: "https://content.presentermedia.com/content/animsp/00007000/7277/stick_figure_shopping_cart_300_wht.gif" }} />
-                                </View>
+                            </View> : 
+                            <View style={{justifyContent:'center', alignItems: 'center', height: '90%'}}>
+                                <ActivityIndicator 
+                                    size={'large'}
+                                />
+                            </View>
                         }
                     </View>
                 )

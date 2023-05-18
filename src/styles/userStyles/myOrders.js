@@ -20,7 +20,7 @@ export const MyOrders = StyleSheet.create({
         flexDirection: "row"
     },
     amountText: {
-        fontSize: 20, color: "black", fontWeight: "900", paddingLeft: 9
+        fontSize: 20, color: "black", fontWeight: "900", paddingLeft: 22
     },
     title: {
         fontSize: 20, color: "white"

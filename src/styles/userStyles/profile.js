@@ -34,13 +34,12 @@ export const profileStyles = StyleSheet.create({
         position: "absolute"
     },
     myProflieText: {
-            fontSize: 25,
-            marginTop: 120,
-            color: "black",
-            alignSelf: "center",
-            fontWeight: "bold",
-            position: "absolute",
-            textDecorationLine:"underline"        
+        fontSize: 25,
+        marginTop: 40,
+        color: "black",
+        alignSelf: "center",
+        fontWeight: "bold",
+        position: "absolute",
     },
     placeholderText: {
         fontSize: 19,
@@ -85,10 +84,10 @@ export const profileStyles = StyleSheet.create({
         color: "black",
         marginTop: 20,
     },
-    contain:{
+    contain: {
         flexDirection: "row", justifyContent: "space-between", padding: 30
     },
-    containText:{
-        fontSize: 25, top: 50, elevation: 10, borderRadius: 1, color: "black", fontWeight: "800" 
+    containText: {
+        fontSize: 25, top: 50, elevation: 10,color: "black", fontWeight: "800", textDecorationLine:"underline"
     }
 })

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Text, View, TouchableOpacity, Alert, Modal, TextInput, ToastAndroid } from "react-native";
-import { ThemeConsumer } from "react-native-elements";
+import { ThemeConsumer, Header } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import AppContext from "../../shared/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -61,11 +61,15 @@ const Profile = () => {
             {
                 ({ theme }) => (
                     <View style={theme.profileStyles.mainContainer}>
+                        <Header
+                            centerComponent={{ text: "Profile", style: theme.dealsStyles.header }}
+                            placement='left'
 
+                        />
                         <View>
-                            <Text style={theme.profileStyles.myAccountText}>Profile</Text>
+                            
                             <TouchableOpacity onPress={() => setVisibility(true)}>
-                                <Text style={theme.profileStyles.myProflieText}>Edit Your Profile</Text>
+                                <Text style={theme.profileStyles.myProflieText}>Edit Your Profile 📝</Text>
                             </TouchableOpacity>
                         </View>
                         <TouchableOpacity>
@@ -78,12 +82,12 @@ const Profile = () => {
                             <View style={theme.profileStyles.contain}>
                                 <View>
                                     <Text style={theme.profileStyles.containText}
-                                    onPress={()=> navigation.navigate("MyOrders")}
+                                        onPress={() => navigation.navigate("MyOrders")}
                                     >My Orders</Text>
                                 </View>
                                 <View>
                                     <Text style={theme.profileStyles.containText}
-                                    onPress={()=> navigation.navigate("MyWishlist")}
+                                        onPress={() => navigation.navigate("MyWishlist")}
                                     >My Wishlist</Text>
                                 </View>
                             </View>

@@ -125,6 +125,9 @@
             "id": 1,
             "req": "https://www.allrecipes.com/thmb/DMbzPe6lZD8Y02PlMZJR_PsGDU8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/6788-amish-white-bread-DDMFS-4x3-6faa1e552bdb4f6eabdd7791e59b3c84.jpg",
             "amount": 30,
+            "uri": [
+                "https://www.allrecipes.com/thmb/DMbzPe6lZD8Y02PlMZJR_PsGDU8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/6788-amish-white-bread-DDMFS-4x3-6faa1e552bdb4f6eabdd7791e59b3c84.jpg"
+            ],
             "name": "Bread",
             "disabled": true,
             "content": "Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
@@ -133,6 +136,9 @@
             "id": 2,
             "req": "https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-1foodgroups_dairy_detailfeature.jpg",
             "amount": 100,
+            "uri": [
+                "https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-1foodgroups_dairy_detailfeature.jpg"
+            ],
             "name": "Dairy",
             "disabled": true,
             "content": "Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."
@@ -140,6 +146,9 @@
         {
             "id": 3,
             "req": "https://facts.net/wp-content/uploads/2022/06/different-types-of-meat-730x384.jpg",
+            "uri": [
+                "https://facts.net/wp-content/uploads/2022/06/different-types-of-meat-730x384.jpg"
+            ],
             "amount": 800,
             "name": "Meat",
             "disabled": true,
@@ -149,6 +158,9 @@
             "id": 4,
             "req": "https://www.allrecipes.com/thmb/oWrKte1auLsqVEcnxa8z1vCZdDU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg",
             "amount": 450,
+            "uri": [
+                "https://www.allrecipes.com/thmb/oWrKte1auLsqVEcnxa8z1vCZdDU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg"
+            ],
             "name": "Pasta",
             "disabled": true,
             "content": "Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing."

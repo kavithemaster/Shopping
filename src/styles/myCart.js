@@ -36,9 +36,9 @@ export const myCartStyles = StyleSheet.create({
         backgroundColor:"white",
     },
     emptyText:{
-        fontSize:30, color:"red", alignSelf:"center",fontWeight:"800"
+        fontSize:30, color:"red", alignSelf:"center",fontWeight:"800", top:10
     },
     emptyImage:{
-        width: "100%", height: "90%",left:10 
+        width: "72%", height: "83%", top:90, left:60
     }
 })
