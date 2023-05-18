@@ -127,7 +127,7 @@ const SignIn = ({ navigation }) => {
                             <Text style={theme.signInstyles.signUpText}>SignUp !</Text>
                         </TouchableOpacity>
 
-                        <View style={{ flexDirection: "row", top: 140, justifyContent: "space-evenly", }}>
+                        <View style={theme.signInstyles.socialMedia}>
                             <View>
                                 <Avatar
                                     rounded

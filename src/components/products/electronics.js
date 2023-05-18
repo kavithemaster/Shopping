@@ -127,7 +127,7 @@ const Electronics = ({ navigation }) => {
                                                          navigation.navigate("Product")
                                                          }}>
                                                         <Image
-                                                            source={{ uri: item.req }}
+                                                            source={{ uri: item.uri[0] }}
                                                             style={theme.electronicStyles.image}
                                                         />
                                                     </TouchableOpacity>

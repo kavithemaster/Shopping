@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { View, Text,TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/MaterialIcons"
 import AppContext from "../../shared/context";
@@ -7,6 +7,10 @@ import AppContext from "../../shared/context";
 const Product = ({ navigation }) => {
 
     const { product, setProduct, favourites, setFavourites, cart, setCart } = useContext(AppContext)
+
+    const colors = ["white", "grey", "black"]
+
+    const [index, setIndex] = useState(0)
 
     const updateFav = (item) => {
         let temp = []
@@ -59,7 +63,7 @@ const Product = ({ navigation }) => {
             setCart(pre => [...pre, product])
         }
     }
-        
+
 
 
     return (
@@ -69,7 +73,7 @@ const Product = ({ navigation }) => {
                     <View style={theme.productDetails.mainContainer}>
                         <Header
                             leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
-                           
+
                         />
                         <ScrollView>
                             <View style={theme.productDetails.container}>
@@ -87,29 +91,25 @@ const Product = ({ navigation }) => {
                                 />
 
                                 <View style={theme.productDetails.imgaeContain}>
-                                    <Image source={{ uri: product.req }} style={theme.productDetails.image} />
+                                    <Image source={{ uri: product.uri[index] }} style={theme.productDetails.image} />
                                 </View>
 
 
                                 {
                                     (product.disabled) ? null :
-                                    <View style={theme.productDetails.topContent}>
-                                    <View >
-                                        <TouchableOpacity style={theme.productDetails.opacity}>
-                                            <Text style={theme.productDetails.text}>White</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                    <View >
-                                        <TouchableOpacity style={theme.productDetails.opacity}>
-                                            <Text style={theme.productDetails.text}>Gray</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                    <View >
-                                        <TouchableOpacity style={theme.productDetails.opacity}>
-                                            <Text style={theme.productDetails.text}>Black</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                </View>
+                                        <View style={theme.productDetails.topContent}>
+                                         
+                                                {
+                                                    colors.map((item, ind) => {
+                                                        return (
+                                                            <TouchableOpacity style={theme.productDetails.opacity} onPress={() => setIndex(ind)}>
+                                                                <Text style={theme.productDetails.text}>{item}</Text>
+                                                            </TouchableOpacity>
+                                                        )
+                                                    })
+                                                }
+                                      
+                                        </View>
                                 }
 
 

@@ -6,13 +6,15 @@ import AppContext from "../shared/context";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Moment from "moment"
-import { ColorSpace } from "react-native-reanimated";
+import { ActivityIndicator } from "react-native-paper";
+
 const MyCart = ({ navigation }) => {
 
     const { cart, setCart } = useContext(AppContext)
 
     useEffect(() => {
-        addToCart()
+        if(cart.length)
+            addToCart()
     },[cart])
 
     useEffect(() => {
@@ -20,18 +22,21 @@ const MyCart = ({ navigation }) => {
     },[])
 
     const getCartData = async () => {
-        console.log("getting...")
+
         const key = await AsyncStorage.getItem("userKey")
         const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/cart.json`)
-        console.log(res.data)
+        let temp = []
+        temp.push(res.data.cart[0])
+        setCart(temp)
+
     }
 
     const addToCart = async () => {
-        console.log("adding....")
+
         const key = await AsyncStorage.getItem("userKey")
-        console.log(key);
+
         const res = await axios.put(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/cart.json`, {cart})
-        console.log(res.data);
+
         getCartData()
     }
 
@@ -58,28 +63,18 @@ const MyCart = ({ navigation }) => {
         setCart([...temp])
     }
 
-    const getOrderData = async () => {
-        const key = await AsyncStorage.getItem("userKey")
-        const del = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/orders.json`)
-        console.log("del", del.data)
-        return del.data
-    }
+ 
 
     const placeOrder = async () => {
         const key = await AsyncStorage.getItem("userKey")
         const del = await axios.delete(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/cart.json`)
-        console.log(del.data);
-        let orderData = []
-        orderData.push(getOrderData())
-        console.log(typeof(orderData))
         let orders = {}
         orders['order'] = cart
         orders['time'] = Moment(new Date()).format('dddd MMMM D, y - h:mm a')
-        orderData.push(orders)
-        const res = await axios.put(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/orders.json`, orderData)
-        console.log(res.data);
+        const res = await axios.post(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/orders.json`, orders)
     }
 
+    
     return (
         <ThemeConsumer>
             {
@@ -98,7 +93,7 @@ const MyCart = ({ navigation }) => {
                             cart.length ?
                                 <ScrollView >
                                     {
-                                        cart.map((item, index) => {
+                                        cart.length ? cart.map((item, index) => {
                                             return (
                                                 <View
                                                     key={index}
@@ -106,7 +101,7 @@ const MyCart = ({ navigation }) => {
 
 
                                                     <View >
-                                                        <Image source={{ uri: item.req }} style={theme.myCartStyles.image} />
+                                                        <Image source={{ uri: item.uri[0] }} style={theme.myCartStyles.image} />
                                                     </View>
 
                                                     <View style={theme.myCartStyles.nameContain}>
@@ -157,7 +152,9 @@ const MyCart = ({ navigation }) => {
 
 
                                             )
-                                        })
+                                        }) : <View>
+                                            <ActivityIndicator  />
+                                        </View>
                                     }
                                     <View style={theme.myCartStyles.gap}>
 

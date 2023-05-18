@@ -116,9 +116,16 @@ const Mobiles = ({ navigation }) => {
                                             <View style={theme.mobileStyles.mainContain}>
 
                                                 <View style={theme.mobileStyles.imageConatiner}>
-                                                    <TouchableOpacity onPress={() => { setProduct(item), navigation.navigate("Product") }}>
+                                                    <TouchableOpacity onPress={() => {
+                                                        let temp = item
+                                                        if (!temp.count) {
+                                                            temp['count'] = 1
+                                                        }
+                                                        setProduct(item),
+                                                            navigation.navigate("Product")
+                                                    }}>
                                                         <Image
-                                                            source={{ uri: item.req }}
+                                                            source={{ uri: item.uri[0] }}
                                                             style={theme.mobileStyles.image}
                                                         />
                                                     </TouchableOpacity>

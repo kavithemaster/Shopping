@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Text, View, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import { ThemeConsumer, Avatar } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import AppContext from "../../shared/context";
 
 const validationSchema = Yup.object({
     Email: Yup
@@ -36,16 +37,16 @@ const validationSchema = Yup.object({
         .required('Conform Password is Required'),
 })
 
-const SignUp = ({navigation}) => {
+const SignUp = ({ navigation }) => {
 
+    const { setLoad, load } = useContext(AppContext)
 
     // Posting Data to firebase 
     const onAddHandler = async (values) => {
-        const data = {...values, cart:"kokarakoo koli", orders: "kokarakoo orders"}
+        const data = { ...values, cart: "kokarakoo koli", orders: "kokarakoo orders" }
         const res = await axios.post("https://beast-4e018-default-rtdb.firebaseio.com//shopping.json", data)
         navigation.navigate("SignIn")
-
-
+        setLoad(!load)
         ToastAndroid.show(
             "Registred Successfully", ToastAndroid.BOTTOM, ToastAndroid.SHORT
         )
@@ -174,8 +175,8 @@ const SignUp = ({navigation}) => {
                                                 </View>
                                             </View>
 
-                                            <TouchableOpacity style={theme.signUpStyles.accountContain} 
-                                            onPress={()=> navigation.goBack()}
+                                            <TouchableOpacity style={theme.signUpStyles.accountContain}
+                                                onPress={() => navigation.goBack()}
                                             >
                                                 <Text style={theme.signUpStyles.accountText}>Already have an account !</Text>
                                             </TouchableOpacity>

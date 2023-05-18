@@ -118,9 +118,17 @@ const Fashion = ({ navigation }) => {
                                             <View style={theme.fashionStyles.mainContain}>
 
                                                 <View style={theme.fashionStyles.imageConatiner}>
-                                                    <TouchableOpacity onPress={() => { setProduct(item), navigation.navigate("Product") }}>
+                                                    <TouchableOpacity onPress={() => {
+                                                        let temp = item
+                                                        if (!temp.count) {
+                                                            temp['count'] = 1
+                                                        }
+                                                        setProduct(item),
+                                                            navigation.navigate("Product"
+                                                            )
+                                                    }}>
                                                         <Image
-                                                            source={{ uri: item.req }}
+                                                            source={{ uri: item.uri[0] }}
                                                             style={theme.fashionStyles.image}
                                                         />
                                                     </TouchableOpacity>

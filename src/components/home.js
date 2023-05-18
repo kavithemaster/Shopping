@@ -6,6 +6,7 @@ import Data from '../assets/data/swiper.json'
 const Home = ({ navigation }) => {
     const swiper = Data.swiper
     const avatar = Data.avatar
+    const scroll = Data.scroll
     return (
         <ThemeConsumer>
             {
@@ -20,7 +21,7 @@ const Home = ({ navigation }) => {
                         <ScrollView>
                             <View style={theme.homeStyles.swiper}>
                                 <FlatList
-                                    data={swiper}
+                                    data={scroll}
                                     keyExtractor={item => item.id}
                                     horizontal
                                     showsHorizontalScrollIndicator={false}

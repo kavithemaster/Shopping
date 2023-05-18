@@ -41,5 +41,8 @@ export const signInstyles = StyleSheet.create({
   },
   signUpText: {
     fontSize: 17, top: 90, color: "black"
+  },
+  socialMedia:{
+    flexDirection: "row", top: 140, justifyContent: "space-evenly", width:"100%"
   }
 });

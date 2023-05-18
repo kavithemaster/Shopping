@@ -9,6 +9,9 @@ import { signInstyles } from "./auth/signIn";
 import { signUpStyles } from "./auth/signUp";
 import { profileStyles } from "./userStyles/profile";
 import { splashStyles } from "./splash";
+import { myWishlist } from "./userStyles/myWishlist";
+import { dealsStyles } from "./deals";
+import { MyOrders } from "./userStyles/myOrders";
 
 const theme={
     homeStyles,
@@ -22,6 +25,9 @@ const theme={
     signUpStyles,
     profileStyles,
     splashStyles,
+    myWishlist,
+    dealsStyles,
+    MyOrders
 }
 
 export default theme
