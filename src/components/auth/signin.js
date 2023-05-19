@@ -16,6 +16,7 @@ const SignIn = ({ navigation }) => {
     const [userFullData, setUserFullData] = useState([])
     const [userFullKey, setUserFullKey] = useState([])
 
+    // For reload of the function and values
     useEffect(() => {
         getData()
     }, [load])
@@ -30,7 +31,7 @@ const SignIn = ({ navigation }) => {
             setUserFullData(res.data)
         }
     }
-    // Storing values
+    // values for email and password
     const onEmailChangeHandler = e => {
         setEmail(e)
     }
@@ -69,6 +70,8 @@ const SignIn = ({ navigation }) => {
             Alert.alert('Please enter deatils correctly', 'Your Details Cannot be Empty')
         }
     }
+
+    // Main code of execution
 
     return (
         <ThemeConsumer>

@@ -110,12 +110,12 @@ const MyCart = ({ navigation }) => {
                     <View>
                         <Header
                             centerComponent={{
-                                text: "My Carts",
+                                text: "Carts",
                                 style: theme.myCartStyles.headerCenter
 
                             }}
-                            leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
-                            rightComponent={cart.length ? { icon: "check", size: 32, onPress: () => placeOrder() } : null}
+                            leftComponent={{ icon: "chevron-left", size: 32,color:"white", onPress: () => navigation.goBack() }}
+                            rightComponent={cart.length ? { icon: "check", size: 32, color:"white",onPress: () => placeOrder() } : null}
                         />
                         {
                             load ? 
@@ -142,27 +142,30 @@ const MyCart = ({ navigation }) => {
 
                                                     <View style={theme.myCartStyles.cart}>
 
-                                                        <View >
+                                                        <View style={theme.myCartStyles.minusIcon}>
                                                             <Icons name="minus" size={30} onPress={() => {
                                                                 let temp = item
                                                                 if(item.count - 1 > 0) {
                                                                     temp.count -= 1
                                                                     updateCount(temp)
+                                                                    
                                                                 }
                                                             }} />
                                                         </View>
 
                                                         <View>
                                                             <Text style={theme.myCartStyles.amountText}>
-                                                                Rs.{item.amount * item.count}
+                                                                {item.count}
                                                             </Text>
+                                                            <Text style={theme.myCartStyles.rate}>Rs. {item.count * item.amount}</Text>
                                                         </View>
                                                      
-                                                            <View >
+                                                            <View style={theme.myCartStyles.plusIcon}>
                                                                 <Icons name="plus" size={30} onPress={() => {
                                                                     let temp = item
                                                                     temp.count += 1
                                                                     updateCount(temp)
+                                                                    
                                                                 }} />
                                                             </View>                                                    
 
@@ -193,7 +196,7 @@ const MyCart = ({ navigation }) => {
                                     </View>
                                 </ScrollView>
                             </View> : 
-                            <View>
+                            <View style={{backgroundColor:"white"}}>
                                 <Text style={theme.myCartStyles.emptyText}>Your Cart is Empty</Text>
                                     <Image
                                         style={theme.myCartStyles.emptyImage}

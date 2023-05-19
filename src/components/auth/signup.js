@@ -7,6 +7,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import AppContext from "../../shared/context";
 
+
+// Validation for user details
 const validationSchema = Yup.object({
     Email: Yup
         .string()
@@ -39,6 +41,7 @@ const validationSchema = Yup.object({
 
 const SignUp = ({ navigation }) => {
 
+
     const { setLoad, load } = useContext(AppContext)
 
     // Posting Data to firebase 
@@ -56,6 +59,7 @@ const SignUp = ({ navigation }) => {
     const [visible, setVisible] = useState(false)
     const [anotherVisible, setAnotherVisible] = useState(false)
 
+    // Values for details
     const Details = {
         Email: "",
         UserName: "",
@@ -64,7 +68,7 @@ const SignUp = ({ navigation }) => {
         ConformPassword: "",
     }
 
-    // Main code of Execution
+    // Main code of Execution using Formik
     return (
         < View >
             <Formik validationSchema={validationSchema} initialValues={Details} onSubmit={(values) => onAddHandler(values)}>

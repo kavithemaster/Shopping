@@ -7,22 +7,27 @@ import AppContext from "../../shared/context";
 
 const Grocery = ({ navigation }) => {
 
+    // Getting values from  json
     const grocery = Data.grocery
 
+    // Using state and context  
     const { cart, setCart, setProduct } = useContext(AppContext)
     const [select, setSelect] = useState()
     const [visible, setVisible] = useState(false)
     const [search, setSearch] = useState("")
     const [result, setResult] = useState([...grocery])
 
+    // Pushing cart by using map of item name
     let tem = []
     cart.map((item) => tem.push(item.name))
 
+    // Adding to cart
     const addtocart = item => {
         item['count'] = 1
         setSelect(item)
     }
 
+    // This funtion is for search
     const updateSearch = (text) => {
         if (text.length) {
             setSearch(text)
@@ -40,6 +45,7 @@ const Grocery = ({ navigation }) => {
         }
     }
 
+    // Getting values by using name and if else condition for add to cart
     useEffect(() => {
         if (select) {
             if (cart.length) {
@@ -73,6 +79,8 @@ const Grocery = ({ navigation }) => {
             }
         }
     }, [select])
+
+    // Main code of execution
     return (
         <ThemeConsumer>
             {
@@ -84,9 +92,9 @@ const Grocery = ({ navigation }) => {
                                 style: theme.groceryStyles.header
                             }}
                             placement="center"
-                            rightComponent={{ icon: "search", onPress: () => setVisible(!visible) }}
+                            rightComponent={{ icon: "search", size: 32, color: "white", onPress: () => setVisible(!visible) }}
 
-                            leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
+                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack() }}
                         />
 
                         {
@@ -121,7 +129,7 @@ const Grocery = ({ navigation }) => {
                                                         if (!temp.count) {
                                                             temp['count'] = 1
                                                         }
-                                                        if(item.add == null){
+                                                        if (item.add == null) {
                                                             item['add'] = false
                                                         }
                                                         setProduct(item),
@@ -153,7 +161,8 @@ const Grocery = ({ navigation }) => {
                                                     <View >
                                                         <Button
                                                             titleStyle={theme.groceryStyles.title}
-                                                            onPress={() => {addtocart(item)  
+                                                            onPress={() => {
+                                                                addtocart(item)
                                                                 let temp = item
                                                                 temp.add = true
                                                                 grocery[temp.id - 1] = temp

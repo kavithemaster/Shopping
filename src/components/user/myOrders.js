@@ -6,8 +6,10 @@ import { Header, ThemeConsumer } from "react-native-elements";
 
 const MyOrders = ({navigation}) => {
 
+    //Geting values from fireBase 
     const [orderData, setOrderData] = useState([])
 
+    // Code for values grrting fro firebase by using key
     const getOrderData = async () => {
         const key = await AsyncStorage.getItem("userKey")
         const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/orders.json`)
@@ -36,7 +38,7 @@ const MyOrders = ({navigation}) => {
                                 text: "My Orders",
                                 style: theme.MyOrders.headerCenter
                             }}
-                            leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
+                            leftComponent={{ icon: "chevron-left", size: 32, color:"white",onPress: () => navigation.goBack() }}
                         />
                         <View>
                             <ScrollView>

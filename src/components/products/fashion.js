@@ -7,22 +7,27 @@ import AppContext from "../../shared/context";
 
 const Fashion = ({ navigation }) => {
 
+    // Getting values from  json
     const fashion = Data.fashion
 
+    // Using state and context 
     const { cart, setCart, setProduct } = useContext(AppContext)
     const [select, setSelect] = useState()
     const [visible, setVisible] = useState(false)
     const [search, setSearch] = useState("")
     const [result, setResult] = useState([...fashion])
 
+    // Pushing cart by using map of item name
     let tem = []
     cart.map((item) => tem.push(item.name))
 
+    // Adding to cart
     const addtocart = item => {
         item['count'] = 1
         setSelect(item)
     }
 
+    // This funtion is for search
     const updateSearch = (text) => {
         if (text.length) {
             setSearch(text)
@@ -40,6 +45,7 @@ const Fashion = ({ navigation }) => {
         }
     }
 
+    // Getting values by using name and if else condition for add to cart
     useEffect(() => {
         if (select) {
             if (cart.length) {
@@ -75,6 +81,7 @@ const Fashion = ({ navigation }) => {
         }
     }, [select])
 
+    // Main code of execution
     return (
         <ThemeConsumer>
             {
@@ -86,9 +93,9 @@ const Fashion = ({ navigation }) => {
                                 style: theme.fashionStyles.header
                             }}
                             placement="center"
-                            rightComponent={{ icon: "search", onPress: () => setVisible(!visible) }}
+                            rightComponent={{ icon: "search", size: 32, color: "white", onPress: () => setVisible(!visible) }}
 
-                            leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
+                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack() }}
                         />
 
                         {
@@ -123,7 +130,7 @@ const Fashion = ({ navigation }) => {
                                                         if (!temp.count) {
                                                             temp['count'] = 1
                                                         }
-                                                        if(item.add == null){
+                                                        if (item.add == null) {
                                                             item['add'] = false
                                                         }
                                                         setProduct(item),
@@ -156,7 +163,8 @@ const Fashion = ({ navigation }) => {
                                                     <View >
                                                         <Button
                                                             titleStyle={theme.fashionStyles.title}
-                                                            onPress={() => {addtocart(item)  
+                                                            onPress={() => {
+                                                                addtocart(item)
                                                                 let temp = item
                                                                 temp.add = true
                                                                 fashion[temp.id - 1] = temp

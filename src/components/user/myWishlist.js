@@ -26,7 +26,7 @@ const MyWishlist = ({ navigation }) => {
                                 text: "My Wishlist",
                                 style: theme.myWishlist.headerCenter
                             }}
-                            leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
+                            leftComponent={{ icon: "chevron-left", color:"white",size: 32, onPress: () => navigation.goBack() }}
                         />
                         {
                             favourites.length ?

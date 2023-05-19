@@ -11,8 +11,10 @@ const Deals = ({ navigation }) => {
                 ({ theme }) => (
                     <View style={theme.dealsStyles.mainContainer}>
                         <Header
-                            centerComponent={{ text: "Delas/Offers", style: theme.dealsStyles.header }}
-                            placement='left'
+                            centerComponent={{ text: "Deals/Offers", style: theme.dealsStyles.header }}
+                            placement='center'
+                            leftComponent={{ icon: "chevron-left", size: 32, color:"white",onPress: () => navigation.goBack() }}
+                            
                             
                         />
                         <View style={theme.dealsStyles.swiper}>

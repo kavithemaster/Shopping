@@ -62,7 +62,7 @@ const Profile = () => {
                 ({ theme }) => (
                     <View style={theme.profileStyles.mainContainer}>
                         <Header
-                            centerComponent={{ text: "Profile", style: theme.dealsStyles.header }}
+                            centerComponent={{ text: "Profile", color:"white",style: theme.dealsStyles.header }}
                             placement='left'
 
                         />

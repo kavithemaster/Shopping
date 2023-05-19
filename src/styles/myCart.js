@@ -18,16 +18,16 @@ export const myCartStyles = StyleSheet.create({
         fontSize: 20, color: "black", paddingLeft: 22, fontWeight: '900', padding: 5
     },
     cart: {
-        flexDirection: "row"
+        flexDirection: "row", left:20
     },
     amountText: {
-        fontSize: 20, color: "black", fontWeight: "900", paddingLeft: 9
+        fontSize: 20, color: "black", fontWeight: "900"
     },
     title: {
         fontSize: 20, color: "white"
     },
     button: {
-        marginHorizontal: 80, marginBottom: 10, padding: 10
+        marginHorizontal: 60, marginBottom: 10, padding: 10
     },
     gap: {
         marginBottom: 100
@@ -40,5 +40,17 @@ export const myCartStyles = StyleSheet.create({
     },
     emptyImage:{
         width: "72%", height: "83%", top:90, left:60
+    },
+    plusIcon:{
+        right:68,
+        color:"black"
+    },
+    minusIcon:{
+        color:"black"
+    },
+    rate:{
+        fontSize:20,
+        right:22,
+        color:"black"
     }
 })

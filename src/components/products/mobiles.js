@@ -7,22 +7,27 @@ import AppContext from "../../shared/context";
 
 const Mobiles = ({ navigation }) => {
 
+    // Getting values from  json
     const mobiles = Data.mobiles
 
+    // Using state and context  
     const { cart, setCart, setProduct } = useContext(AppContext)
     const [select, setSelect] = useState()
     const [visible, setVisible] = useState(false)
     const [search, setSearch] = useState("")
     const [result, setResult] = useState([...mobiles])
 
+    // Pushing cart by using map of item name
     let tem = []
     cart.map((item) => tem.push(item.name))
 
+    // Adding to cart
     const addtocart = item => {
         item['count'] = 1
         setSelect(item)
     }
 
+    // This funtion is for search
     const updateSearch = (text) => {
         if (text.length) {
             setSearch(text)
@@ -40,6 +45,7 @@ const Mobiles = ({ navigation }) => {
         }
     }
 
+    // Getting values by using name and if else condition for add to cart
     useEffect(() => {
         if (select) {
             if (cart.length) {
@@ -74,6 +80,7 @@ const Mobiles = ({ navigation }) => {
         }
     }, [select])
 
+    // Main code of execution
     return (
         <ThemeConsumer>
             {
@@ -85,9 +92,9 @@ const Mobiles = ({ navigation }) => {
                                 style: theme.mobileStyles.header
                             }}
                             placement="center"
-                            rightComponent={{ icon: "search", onPress: () => setVisible(!visible) }}
+                            rightComponent={{ icon: "search", size: 32, color: "white", onPress: () => setVisible(!visible) }}
 
-                            leftComponent={{ icon: "chevron-left", size: 32, onPress: () => navigation.goBack() }}
+                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack() }}
                         />
                         {
                             visible ? <View>
