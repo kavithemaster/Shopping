@@ -4,7 +4,6 @@ import { ThemeConsumer, Header } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import AppContext from "../../shared/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Icon from 'react-native-vector-icons/MaterialIcons'
 import axios from "axios";
 import { Formik } from "formik";
 import * as Yup from "yup";

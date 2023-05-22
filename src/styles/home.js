@@ -1,4 +1,3 @@
-import React from "react";
 import { StyleSheet } from "react-native";
 
 export const homeStyles = StyleSheet.create({
@@ -32,28 +31,45 @@ export const homeStyles = StyleSheet.create({
     backgroundColor: "white"
   },
   swiper: {
-    top: 15, marginHorizontal: 5, borderRadius: 20, width: 400
+    top: 15,
+    marginHorizontal: 5,
+    borderRadius: 20,
+    width: 400
   },
   swiperImage: {
-    height: 200, width: 400, borderRadius: 20, marginRight: 5
+    height: 200,
+    width: 400,
+    borderRadius: 20,
+    marginRight: 5
   },
   avatarContain: {
-    top: 35, height: 150
+    top: 35,
+    height: 150
   },
   avatarView: {
-    marginHorizontal: 8, paddingLeft: 10
+    marginHorizontal: 8,
+    paddingLeft: 10
   },
   avatar: {
     height: 100
   },
   nameText: {
-    fontSize: 20, color: "black", paddingLeft: 10, fontWeight: "900"
+    fontSize: 20,
+    color: "black",
+    paddingLeft: 10,
+    fontWeight: "900"
   },
   imageContain: {
-    marginHorizontal: "10%", marginVertical: 10, width: "80%", elevation: 20, borderRadius: 10
+    marginHorizontal: "10%",
+    marginVertical: 10,
+    width: "80%",
+    elevation: 20,
+    borderRadius: 10
   },
   image: {
-    height: 140, width: "100%", borderRadius: 10
+    height: 140,
+    width: "100%",
+    borderRadius: 10
   },
   gap: {
     marginBottom: 100

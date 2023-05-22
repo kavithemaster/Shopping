@@ -1,4 +1,3 @@
-import React from "react";
 import { StyleSheet } from "react-native";
 
 export const productDetails = StyleSheet.create({
@@ -10,45 +9,61 @@ export const productDetails = StyleSheet.create({
     marginTop: 10
   },
   icon: {
-    color: "black", alignSelf: "flex-end", marginHorizontal: 8
+    color: "black",
+    alignSelf: "flex-end",
+    marginHorizontal: 8
   },
   imgaeContain: {
-    elevation: 40, borderRadius: 10, top: 10
+    elevation: 40,
+    borderRadius: 10,
+    top: 10
   },
   image: {
-    width: "96%", height: 280, left: 9
+    width: "96%",
+    height: 280,
+    left: 9
   },
   topContent: {
-    flexDirection: "row", justifyContent: "space-evenly", top: 45
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    top: 45
   },
   opacity: {
-    width: 70, borderWidth: 2
+    width: 70,
+    borderWidth: 2
   },
   text: {
-    fontSize: 20, textAlign: "center", color: "black"
+    fontSize: 20,
+    textAlign: "center",
+    color: "black"
   },
   nameContain: {
     marginTop: 60
   },
   nameText: {
-    fontSize: 20, color: "black", padding: 10
+    fontSize: 20,
+    color: "black",
+    padding: 10
   },
   contentText:
   {
-    fontSize: 18, color: "black", padding: 14, justifyContent: "center"
+    fontSize: 18,
+    color: "black",
+    padding: 14,
+    justifyContent: "center"
   },
-  amountContain:{
-    padding: 14, justifyContent: "center"
+  amountContain: {
+    padding: 14,
+    justifyContent: "center"
   },
-  title:{
-    fontSize: 20, color: "white"
+  title: {
+    fontSize: 20,
+    color: "white"
   },
-  button:{
+  button: {
     marginHorizontal: 130
   },
-  gap:{
+  gap: {
     marginBottom: 20
   }
-
-
 })

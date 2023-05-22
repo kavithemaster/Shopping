@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Text, View, ScrollView } from "react-native";
-import Icons from "react-native-vector-icons/MaterialCommunityIcons"
+import { ActivityIndicator } from "react-native-paper";
+import {useIsFocused} from "@react-navigation/native";
 import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
+import Icons from "react-native-vector-icons/MaterialCommunityIcons"
 import AppContext from "../shared/context";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Moment from "moment"
-import { ActivityIndicator } from "react-native-paper";
-import {useIsFocused} from "@react-navigation/native";
 
 const MyCart = ({ navigation }) => {
 
@@ -157,7 +157,7 @@ const MyCart = ({ navigation }) => {
                                                             <Text style={theme.myCartStyles.amountText}>
                                                                 {item.count}
                                                             </Text>
-                                                            <Text style={theme.myCartStyles.rate}>Rs. {item.count * item.amount}</Text>
+                                                            <Text style={[theme.myCartStyles.rate,{textDecorationLine:"underline"}]}>Rs. {item.count * item.amount}</Text>
                                                         </View>
                                                      
                                                             <View style={theme.myCartStyles.plusIcon}>

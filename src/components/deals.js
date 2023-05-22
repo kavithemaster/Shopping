@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, Image } from "react-native";
+import { View,FlatList, Image } from "react-native";
 import { ThemeConsumer, Header } from "react-native-elements";
 import Data from '../assets/data/swiper.json'
 

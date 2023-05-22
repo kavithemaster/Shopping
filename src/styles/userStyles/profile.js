@@ -20,10 +20,19 @@ export const profileStyles = StyleSheet.create({
         marginTop: 63,
     },
     logoutMainContainer: {
-        top: 100, height: 50, backgroundColor: "red", marginHorizontal: 100, borderRadius: 10, left: 13
+        top: 100,
+        height: 50,
+        backgroundColor: "red",
+        marginHorizontal: 100,
+        borderRadius: 10,
+        left: 13
     },
     logoutText: {
-        fontSize: 20, color: "white", alignSelf: "center", padding: 10, fontWeight: "800"
+        fontSize: 20,
+        color: "white",
+        alignSelf: "center",
+        padding: 10,
+        fontWeight: "800"
     },
     myAccountText: {
         fontSize: 25,
@@ -65,16 +74,35 @@ export const profileStyles = StyleSheet.create({
         left: 13,
     },
     submitButton: {
-        top: 20, height: 50, backgroundColor: "blue", marginHorizontal: 100, borderRadius: 10, left: 13,
+        top: 20,
+        height: 50,
+        backgroundColor: "blue",
+        marginHorizontal: 100,
+        borderRadius: 10,
+        left: 13,
     },
     submitText: {
-        fontSize: 20, color: "white", alignSelf: "center", padding: 10, fontWeight: "800"
+        fontSize: 20,
+        color: "white",
+        alignSelf: "center",
+        padding: 10,
+        fontWeight: "800"
     },
     closeButton: {
-        top: 40, height: 50, backgroundColor: "blue", marginHorizontal: 100, borderRadius: 10, left: 13,
+        top: 40,
+        height: 50,
+        backgroundColor: "blue",
+        marginHorizontal: 100,
+        borderRadius: 10,
+        left: 13,
     },
     close: {
-        fontSize: 20, color: "white", alignSelf: "center", padding: 10, fontWeight: "800", top: 20
+        fontSize: 20,
+        color: "white",
+        alignSelf: "center",
+        padding: 10,
+        fontWeight: "800",
+        top: 20
     },
     text: {
         fontSize: 19,
@@ -85,9 +113,16 @@ export const profileStyles = StyleSheet.create({
         marginTop: 20,
     },
     contain: {
-        flexDirection: "row", justifyContent: "space-between", padding: 30
+        flexDirection: "row",
+        justifyContent: "space-between",
+        padding: 30
     },
     containText: {
-        fontSize: 25, top: 50, elevation: 10,color: "black", fontWeight: "800", textDecorationLine:"underline"
+        fontSize: 25,
+        top: 50,
+        elevation: 10,
+        color: "black",
+        fontWeight: "800",
+        textDecorationLine: "underline"
     }
 })

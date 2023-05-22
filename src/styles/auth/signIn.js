@@ -11,18 +11,27 @@ export const signInstyles = StyleSheet.create({
     top: 13,
   },
   mainContain: {
-    top: 39, padding: 10,
+    top: 39,
+    padding: 10,
     width: "90%",
     left: 35,
   },
   text: {
-    fontSize: 20, color: "black", fontWeight: "800"
+    fontSize: 20,
+    color: "black",
+    fontWeight: "800"
   },
   content: {
-    backgroundColor: "lightblue", width: "80%", height: 60, elevation: 10, borderRadius: 10
+    backgroundColor: "lightblue",
+    width: "80%",
+    height: 60,
+    elevation: 10,
+    borderRadius: 10
   },
   textInput: {
-    fontSize: 18, padding: 15, color: "black"
+    fontSize: 18,
+    padding: 15,
+    color: "black"
   },
   eyeIcon: {
     color: "black",
@@ -31,18 +40,33 @@ export const signInstyles = StyleSheet.create({
     padding: 18,
   },
   submitButton: {
-    top: 70, height: 50, backgroundColor: "blue", marginHorizontal: 100, borderRadius: 10,
+    top: 70,
+    height: 50,
+    backgroundColor: "blue",
+    marginHorizontal: 100,
+    borderRadius: 10,
   },
   buttonText: {
-    fontSize: 20, padding: 12, textAlign: 'center', color: "white"
+    fontSize: 20,
+    padding: 12,
+    textAlign: 'center',
+    color: "white"
   },
   forgotButton: {
-    fontSize: 18, alignSelf: "flex-end", color: "black", top: 50
+    fontSize: 18,
+    alignSelf: "flex-end",
+    color: "black",
+    top: 50
   },
   signUpText: {
-    fontSize: 17, top: 90, color: "black"
+    fontSize: 17,
+    top: 90,
+    color: "black"
   },
-  socialMedia:{
-    flexDirection: "row", top: 140, justifyContent: "space-evenly", width:"100%"
+  socialMedia: {
+    flexDirection: "row",
+    top: 140,
+    justifyContent: "space-evenly",
+    width: "100%"
   }
 });

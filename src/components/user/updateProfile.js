@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 const UpdateProfile = () => {
     return(
         <View>
-            <Text>SignIn Page</Text>
+            <Text>Update Profile Page</Text>
         </View>
     )
 }
