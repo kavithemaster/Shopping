@@ -38,14 +38,15 @@ export const myCartStyles = StyleSheet.create({
     amountText: {
         fontSize: 20,
         color: "black",
-        fontWeight: "900"
+        fontWeight: "900",
+
     },
     title: {
         fontSize: 20,
         color: "white"
     },
     button: {
-        marginHorizontal: 60,
+        marginHorizontal: 76,
         marginBottom: 10,
         padding: 10
     },
@@ -69,15 +70,19 @@ export const myCartStyles = StyleSheet.create({
         left: 60
     },
     plusIcon: {
-        right: 66,
-        color: "black"
+        right: 73,
+        color: "black",
+
     },
     minusIcon: {
-        color: "black"
+        color: "black",
+        right:10,
+ 
     },
     rate: {
         fontSize: 20,
-        right: 22,
-        color: "black"
+        right: 32,
+        color: "black",
+        fontWeight:"800"
     }
 })

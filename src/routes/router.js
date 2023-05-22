@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider, Icon } from 'react-native-elements'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import SignIn from "../components/auth/signin";
@@ -26,7 +25,6 @@ import Splash from "../components/splash";
 
 
 const Stack = createNativeStackNavigator()
-const Tab = createMaterialTopTabNavigator()
 const Bottom = createMaterialBottomTabNavigator()
 
 

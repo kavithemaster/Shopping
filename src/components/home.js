@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity, ScrollView} from "react-native";
+import { View, Text, FlatList, Image, TouchableOpacity, ScrollView } from "react-native";
 import { Avatar, ThemeConsumer, Header } from "react-native-elements";
 import Data from '../assets/data/swiper.json'
+
 
 const Home = ({ navigation }) => {
     const swiper = Data.swiper
@@ -17,7 +18,7 @@ const Home = ({ navigation }) => {
                             centerComponent={{ text: "Shopping", style: theme.homeStyles.header }}
                             placement='left'
                         />
-                        
+
                         <ScrollView>
                             <View style={theme.homeStyles.swiper}>
                                 <FlatList
@@ -80,8 +81,6 @@ const Home = ({ navigation }) => {
 
                                                             />
                                                         </View>
-
-
                                                     </TouchableOpacity>
                                                 </View>
                                             </View>

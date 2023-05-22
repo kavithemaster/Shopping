@@ -38,7 +38,7 @@ const MyCart = ({ navigation }) => {
         let temp = []
         // console.log(res.data.cart.length)
         res.data.cart.map((item) => {
-            console.log(item)
+            // console.log(item)
             temp.push(item)
         })
         setCart([...temp])
@@ -165,6 +165,7 @@ const MyCart = ({ navigation }) => {
                                                                     let temp = item
                                                                     temp.count += 1
                                                                     updateCount(temp)
+                                                                    
                                                                     
                                                                 }} />
                                                             </View>                                                    
