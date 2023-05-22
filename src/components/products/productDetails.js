@@ -153,8 +153,7 @@ const Product = ({ navigation }) => {
                                                                         temp.push(item)
                                                                     }
                                                                 })
-                                                                // colors = temp
-                                                                console.log(temp)
+                                                     
                                                             }}>
                                                                 <Text style={[theme.productDetails.text, {color: item.color}]}>{item.label}</Text>
                                                             </TouchableOpacity>

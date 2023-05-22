@@ -39,7 +39,6 @@ export const myCartStyles = StyleSheet.create({
         fontSize: 20,
         color: "black",
         fontWeight: "900",
-
     },
     title: {
         fontSize: 20,
@@ -77,7 +76,6 @@ export const myCartStyles = StyleSheet.create({
     minusIcon: {
         color: "black",
         right:10,
- 
     },
     rate: {
         fontSize: 20,

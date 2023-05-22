@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity, ScrollView } from "react-native";
 import { Avatar, ThemeConsumer, Header } from "react-native-elements";
 import Data from '../assets/data/swiper.json'
+import Swiper from 'react-native-swiper';
 
 
 const Home = ({ navigation }) => {
@@ -18,22 +19,19 @@ const Home = ({ navigation }) => {
                             centerComponent={{ text: "Shopping", style: theme.homeStyles.header }}
                             placement='left'
                         />
-
-                        <ScrollView>
+                        <ScrollView>                        
                             <View style={theme.homeStyles.swiper}>
-                                <FlatList
-                                    data={scroll}
-                                    keyExtractor={item => item.id}
-                                    horizontal
-                                    showsHorizontalScrollIndicator={false}
-                                    renderItem={({ item }) => {
-                                        return (
-                                            <View>
-                                                <Image source={{ uri: item.req }} style={theme.homeStyles.swiperImage} />
-                                            </View>
-                                        )
-                                    }}
-                                />
+                                <Swiper containerStyle={{height:250}} autoplay={true} loop={true} >
+                                    {
+                                        scroll.map((item, ind) => {
+                                            return (
+                                                <View key={ind} >
+                                                    <Image source={{ uri: item.req }} style={theme.homeStyles.swiperImage} />
+                                                </View>
+                                            )
+                                        })
+                                    }
+                                </Swiper>
                             </View>
 
                             <View style={theme.homeStyles.avatarContain}>
