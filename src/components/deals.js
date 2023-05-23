@@ -1,10 +1,7 @@
 import React from 'react';
-import { View,FlatList, Image } from "react-native";
-import { ThemeConsumer, Header } from "react-native-elements";
-import Data from '../assets/data/swiper.json'
-
+import { View,Image} from "react-native";
+import { ThemeConsumer, Header, Text } from "react-native-elements"
 const Deals = ({ navigation }) => {
-    const offers = Data.offers
     return (
         <ThemeConsumer>
             {
@@ -13,23 +10,17 @@ const Deals = ({ navigation }) => {
                         <Header
                             centerComponent={{ text: "Deals/Offers", style: theme.dealsStyles.header }}
                             placement='center'
-                            leftComponent={{ icon: "chevron-left", size: 32, color:"white",onPress: () => navigation.goBack() }}
-                            
-                            
+                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack() }}
                         />
-                        <View style={theme.dealsStyles.swiper}>
-                            <FlatList
-                                data={offers}
-                                keyExtractor={item => item.id}
-                                horizontal
-                                showsHorizontalScrollIndicator={false}
-                                renderItem={({ item }) => {
-                                    return (
-                                        <View>
-                                            <Image source={{ uri: item.req }} style={theme.dealsStyles.swiperImage} />
-                                        </View>
-                                    )
-                                }}
+                        <View style={theme.dealsStyles.textContain}>
+                            <Text style={theme.dealsStyles.text}>
+                                Currently No offer's are avaliable please get back it later
+                            </Text>
+                        </View>
+                        <View style={theme.dealsStyles.imageContain}>
+                            <Image
+                                source={{ uri: "https://i.pinimg.com/originals/15/28/ff/1528ff0a9c3f25683e3ca120155c9540.gif" }}
+                                style={theme.dealsStyles.imageStyle}
                             />
                         </View>
                     </View>

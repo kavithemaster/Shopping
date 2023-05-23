@@ -43,16 +43,15 @@ export const homeStyles = StyleSheet.create({
     marginRight: 5
   },
   avatarContain: {
-    top: 5,
-    height: 150
+    height: 120
   },
   avatarView: {
     marginHorizontal: 10,
     paddingLeft: 10
   },
   avatar: {
-    height: 90,
-    top:10
+    height: 100,
+    top:5
   },
   nameText: {
     fontSize: 20,
