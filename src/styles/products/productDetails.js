@@ -9,13 +9,13 @@ export const productDetails = StyleSheet.create({
     marginTop: 10
   },
   icon: {
-    color: "black",
+    color: "red",
     alignSelf: "flex-end",
     marginHorizontal: 8
   },
   imgaeContain: {
-    elevation: 40,
-    borderRadius: 10,
+    elevation: 80,
+    borderRadius: 60,
     top: 10
   },
   image: {
@@ -30,27 +30,30 @@ export const productDetails = StyleSheet.create({
   },
   opacity: {
     width: 70,
-    borderWidth: 2
+    borderWidth: 3,
   },
   text: {
     fontSize: 20,
     textAlign: "center",
-    color: "black"
+    color: "black",
+    fontWeight:"800",
   },
   nameContain: {
-    marginTop: 60
+    marginTop: 60,
+    
   },
   nameText: {
     fontSize: 20,
     color: "black",
-    padding: 10
+    padding: 10,
+    color:"black", fontWeight:"800"
   },
   contentText:
   {
     fontSize: 18,
-    color: "black",
     padding: 14,
-    justifyContent: "center"
+    justifyContent: "center",
+    color:"black", fontWeight:"800"
   },
   amountContain: {
     padding: 14,

@@ -4,43 +4,44 @@ import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/MaterialIcons"
 import AppContext from "../../shared/context";
 
+let colors = [
+    {
+        label: "White",
+        bgcolor: "white",
+        color: "black",
+        active: true,
+        
+    },
+    {
+        label: "Gray",
+        bgcolor: "white",
+        color: "black",
+        active: false
+    },
+    {
+        label: "Black",
+        bgcolor: "white",
+        color: "black",
+        active: false
+    }
+]
+
 const Product = ({ navigation }) => {
-    
+
     // Getting and storing values by using useContext and using useState
     const { product, setProduct, favourites, setFavourites, cart, setCart } = useContext(AppContext)
     const [index, setIndex] = useState(0)
 
     // Changing name for Add to Added (to cart)
     const [exist, setExist] = useState(false)
-
     // Changing color for imgae and chaning
-    const colors = [
-        // "white", "grey", "black"
-        {
-            label: "white",
-            bgcolor: "white",
-            color: "black",
-            active: false
-        },
-        {
-            label: "grey",
-            bgcolor: "grey",
-            color: "white",
-            active: false
-        },
-        {
-            label: "black",
-            bgcolor: "black",
-            color: "white",
-            active: false
-        }
-    ]
+
 
 
     // Using map for setExit state
     useEffect(() => {
         cart.map((item) => {
-            if(item == product) {
+            if (item == product) {
                 setExist(true)
             }
         })
@@ -103,14 +104,13 @@ const Product = ({ navigation }) => {
 
 
     // Main Function code execution
-       return (
+    return (
         <ThemeConsumer>
             {
                 ({ theme }) =>
                     <View style={theme.productDetails.mainContainer}>
                         <Header
-                            leftComponent={{ icon: "chevron-left", size: 32, color:"white", onPress: () => navigation.goBack() }}
-
+                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack() }}
                         />
                         <ScrollView>
                             <View style={theme.productDetails.container}>
@@ -135,32 +135,36 @@ const Product = ({ navigation }) => {
                                 {
                                     (product.disabled) ? null :
                                         <View style={theme.productDetails.topContent}>
-                                         
-                                                {
-                                                    colors.map((item, ind) => {
-                                                        return (
-                                                            <TouchableOpacity key={ind} style={[theme.productDetails.opacity, {backgroundColor: item.bgcolor, borderColor: item.active ? "blue" : "white"}]} onPress={() => {
-                                                                setIndex(ind)
-                                                                let temp = []
-                                                                colors.map((item, i) => {
-                                                                    if(i == ind){
+
+                                            {
+                                                colors.map((item, ind) => {
+                                                    return (
+                                                        <TouchableOpacity key={ind} style={[theme.productDetails.opacity, { backgroundColor: item.bgcolor, borderColor: !item.active ? "black" : "blue" }]} onPress={() => {
+                                                            setIndex(ind)
+                                                            let temp = []
+                                                            colors.map((item, i) => {
+                                                                if (i == ind) {
+                                                                    item.active = !item.active
+                                                                    temp.push(item)
+                                                                }
+                                                                else {
+                                                                    if (item.active) {
                                                                         item.active = !item.active
                                                                         temp.push(item)
                                                                     }
                                                                     else {
-                                                                        
-                                                                        item.active = !item.active
                                                                         temp.push(item)
                                                                     }
-                                                                })
-                                                     
-                                                            }}>
-                                                                <Text style={[theme.productDetails.text, {color: item.color}]}>{item.label}</Text>
-                                                            </TouchableOpacity>
-                                                        )
-                                                    })
-                                                }
-                                      
+                                                                }
+                                                            })
+                                                            colors = [...temp]
+                                                        }}>
+                                                            <Text style={[theme.productDetails.text, { color: item.color }]}>{item.label}</Text>
+                                                        </TouchableOpacity>
+                                                    )
+                                                })
+                                            }
+
                                         </View>
                                 }
 
@@ -189,8 +193,8 @@ const Product = ({ navigation }) => {
                                         title={exist ? "Added to cart" : "Add to Cart"}
                                         titleStyle={theme.productDetails.title}
                                         buttonStyle={theme.productDetails.button}
-                                        onPress={() => {addToCart()}}
-                                        
+                                        onPress={() => { addToCart() }}
+
                                     />
                                 </View>
 
