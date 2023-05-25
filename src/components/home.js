@@ -6,6 +6,8 @@ import Swiper from 'react-native-swiper';
 
 
 const Home = ({ navigation }) => {
+
+    // Getting values from json
     const swiper = Data.swiper
     const avatar = Data.avatar
     const scroll = Data.scroll

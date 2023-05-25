@@ -91,6 +91,8 @@ const SignIn = ({ navigation }) => {
                                     style={theme.signInstyles.textInput}
                                     placeholder="Email"
                                     placeholderTextColor="white"
+                                    autoCapitalize={"none"}
+                                    keyboardType="email-address"
                                     onChangeText={onEmailChangeHandler}
                                 />
                             </View>

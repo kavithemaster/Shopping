@@ -11,6 +11,7 @@ import Moment from "moment"
 
 const MyCart = ({ navigation }) => {
 
+    // Setting and getting value from useContext
     const { cart, setCart } = useContext(AppContext)
     const [load, setLoad] = useState(false)
 
@@ -23,6 +24,7 @@ const MyCart = ({ navigation }) => {
         }, 3000);
     }, [])
 
+    // Getting cart from using axios
     const getCartData = async () => {
         const key = await AsyncStorage.getItem("userKey")
         const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/cart.json`)
@@ -33,6 +35,7 @@ const MyCart = ({ navigation }) => {
         setCart([...temp])
     }
 
+    // Inserting cart data to fire base
     const addToCart = async () => {
         const key = await AsyncStorage.getItem("userKey")
         await axios.put(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/cart.json`, { cart })
@@ -44,6 +47,7 @@ const MyCart = ({ navigation }) => {
             })
     }
 
+    // Remove cart function
     const removeProduct = (name) => {
         let temp = []
         if (cart.length > 1) {
@@ -63,6 +67,7 @@ const MyCart = ({ navigation }) => {
 
     }
 
+    // Updating amount 
     const updateCount = (item) => {
         let temp = []
         cart.map((prod) => {
@@ -76,7 +81,7 @@ const MyCart = ({ navigation }) => {
         setCart([...temp])
     }
 
-
+    // placing order using firebase
     const placeOrder = async () => {
         const key = await AsyncStorage.getItem("userKey")
         const del = await axios.delete(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/cart.json`)
@@ -87,6 +92,7 @@ const MyCart = ({ navigation }) => {
     }
 
 
+    // main code execution
     return (
         <ThemeConsumer>
             {
@@ -137,40 +143,38 @@ const MyCart = ({ navigation }) => {
                                                                     }} />
                                                                 </View>
 
-                                                                <View>
-                                                                    <Text style={theme.myCartStyles.amountText}>
-                                                                        {item.count}
-                                                                    </Text>
-                                                                    <Text style={[theme.myCartStyles.rate, { textDecorationLine: "underline" }]}>Rs. {item.count * item.amount}</Text>
+                                                                <View style={theme.myCartStyles.price}>
+
+                                                                    <View>
+                                                                        <Text style={theme.myCartStyles.amountText}>
+                                                                            {item.count}
+                                                                        </Text>
+                                                                        <Text style={[theme.myCartStyles.rate, { textDecorationLine: "underline" }]}>Rs. {item.count * item.amount}</Text>
+                                                                    </View>
+
+                                                                    <View style={theme.myCartStyles.plusIcon}>
+                                                                        <Icons name="plus" size={30} onPress={() => {
+                                                                            let temp = item
+                                                                            temp.count += 1
+                                                                            updateCount(temp)
+
+
+                                                                        }} />
+                                                                    </View>
+
+                                                                    <View >
+                                                                        <Button
+                                                                            title={"Remove cart"}
+                                                                            titleStyle={theme.myCartStyles.title}
+                                                                            buttonStyle={theme.myCartStyles.button}
+                                                                            onPress={() => {
+                                                                                removeProduct(item.name)
+                                                                            }}
+                                                                        />
+                                                                    </View>
                                                                 </View>
-
-                                                                <View style={theme.myCartStyles.plusIcon}>
-                                                                    <Icons name="plus" size={30} onPress={() => {
-                                                                        let temp = item
-                                                                        temp.count += 1
-                                                                        updateCount(temp)
-
-
-                                                                    }} />
-                                                                </View>
-
-                                                                <View >
-                                                                    <Button
-                                                                        title={"Remove cart"}
-                                                                        titleStyle={theme.myCartStyles.title}
-                                                                        buttonStyle={theme.myCartStyles.button}
-                                                                        onPress={() => {
-                                                                            removeProduct(item.name)
-                                                                        }}
-                                                                    />
-                                                                </View>
-
                                                             </View>
-
                                                         </View>
-
-
-
                                                     )
                                                 })
                                             }

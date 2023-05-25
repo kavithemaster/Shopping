@@ -4,8 +4,10 @@ import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
 import AppContext from "../../shared/context";
 
 const MyWishlist = ({ navigation }) => {
+    // Getting favourites from useContext
     const { favourites, setFavourites } = useContext(AppContext)
 
+    // Function for removing from favourites
     const removeProduct = (name) => {
         let temp = []
         favourites.map((item) => {
@@ -16,6 +18,7 @@ const MyWishlist = ({ navigation }) => {
         setFavourites([...temp])
     }
 
+    // Main code of execution
     return (
         <ThemeConsumer>
             {

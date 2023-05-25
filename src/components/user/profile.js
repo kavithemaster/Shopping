@@ -8,7 +8,7 @@ import axios from "axios";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-
+// Validation for edit the profile
 const validation = Yup.object({
     UserName: Yup
         .string()
@@ -23,17 +23,19 @@ const validation = Yup.object({
         .required('Phone number is required'),
 })
 
+// Main function
 const Profile = () => {
     const navigation = useNavigation()
     const [visibility, setVisibility] = useState(false)
     const [userData, setUserData] = useState([])
     const { setLogin } = useContext(AppContext)
 
+   // Rendering by using useEffect  
     useEffect(() => {
         getUSerData()
     }, [])
 
-    // Grtting user data from Firebase
+    // Getting user data from Firebase
     const getUSerData = async () => {
         let key = await AsyncStorage.getItem("userKey")
         const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}.json`)

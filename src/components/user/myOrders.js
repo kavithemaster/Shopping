@@ -24,6 +24,7 @@ const MyOrders = ({navigation}) => {
         setOrderData([...temp])
     }
 
+    // Using useEffect for getting data from firebase
     useEffect(() => {
         getOrderData()
     }, [])

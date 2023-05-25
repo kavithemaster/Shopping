@@ -45,7 +45,7 @@ export const myCartStyles = StyleSheet.create({
         color: "white"
     },
     button: {
-        marginHorizontal: 76,
+        marginHorizontal: 16,
         marginBottom: 10,
         padding: 10
     },
@@ -69,8 +69,8 @@ export const myCartStyles = StyleSheet.create({
         left: 60
     },
     plusIcon: {
-        right: 73,
         color: "black",
+        right:67
 
     },
     minusIcon: {
@@ -82,5 +82,8 @@ export const myCartStyles = StyleSheet.create({
         right: 32,
         color: "black",
         fontWeight:"800"
+    },
+    price:{
+        flexDirection:"row"
     }
 })

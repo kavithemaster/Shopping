@@ -23,11 +23,11 @@ import AppContext from "../shared/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Splash from "../components/splash";
 
-
+// Creating Navigator for stack and bottom
 const Stack = createNativeStackNavigator()
 const Bottom = createMaterialBottomTabNavigator()
 
-
+// Authentication for app using stack Navigator
 const AuthStack = () => {
     return (
         <NavigationContainer>
@@ -44,6 +44,7 @@ const AuthStack = () => {
     )
 }
 
+// Products lists using Bottom navigator
 const ProductsTab = () => {
     return (
         <NavigationContainer>
@@ -109,6 +110,7 @@ const ProductsTab = () => {
     )
 }
 
+// Product details using stack navigator
 const ProductsDetails = () => {
     return (
         <Stack.Navigator
@@ -127,6 +129,7 @@ const ProductsDetails = () => {
 
 }
 
+// User information using stack
 const UserStack = () => {
     return (
         <Stack.Navigator
@@ -142,6 +145,7 @@ const UserStack = () => {
     )
 }
 
+// Main Function for application
 const Router = () => {
 
     const [cart, setCart] = useState([])
@@ -152,11 +156,13 @@ const Router = () => {
     const [login, setLogin] = useState(false)
     const [visible, setVisible] = useState(false)
 
+    // useEffect function for getCart and getUser
     useEffect(() => {
         getCart()
         getUser()
     }, [])
 
+    // user function using Async storage
     const getUser = async () => {
         let user
         try {
@@ -169,6 +175,7 @@ const Router = () => {
         }
     }
 
+    // card function using Async storage
     const getCart = async () => {
         let crt
         try {

@@ -97,6 +97,7 @@ const SignUp = ({ navigation }) => {
                                                         placeholderTextColor="white"
                                                         onChangeText={handleChange("Email")}
                                                         value={Email}
+                                                        autoCapitalize={"none"}
                                                         onBlur={handleBlur("Email")}
                                                     />
                                                     {errors ? (
