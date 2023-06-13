@@ -16,14 +16,13 @@ const Home = ({ navigation }) => {
             {
                 ({ theme }) => (
                     <View style={theme.homeStyles.mainContainer}>
-
                         <Header
                             centerComponent={{ text: "Shopping", style: theme.homeStyles.header }}
                             placement='left'
                         />
-                        <ScrollView>                        
-                            <View style={theme.homeStyles.swiper}>
-                                <Swiper containerStyle={{height:250}} autoplay={true} loop={true} >
+                        <ScrollView>
+                            <View testID='swiper-container' style={theme.homeStyles.swiper}>
+                                <Swiper containerStyle={{ height: 250 }} autoplay={true} loop={true} >
                                     {
                                         scroll.map((item, ind) => {
                                             return (
@@ -35,7 +34,6 @@ const Home = ({ navigation }) => {
                                     }
                                 </Swiper>
                             </View>
-
                             <View style={theme.homeStyles.avatarContain}>
                                 <Text style={theme.homeStyles.topText}> Top Selling </Text>
                                 <FlatList
@@ -43,6 +41,7 @@ const Home = ({ navigation }) => {
                                     keyExtractor={item => item.id}
                                     horizontal
                                     showsHorizontalScrollIndicator={false}
+                                    testID='avatar-container'
                                     renderItem={({ item }) => {
                                         return (
                                             <View style={theme.homeStyles.avatarView}>
@@ -57,8 +56,6 @@ const Home = ({ navigation }) => {
                                     }}
                                 />
                             </View>
-
-
                             <View >
                                 <FlatList
                                     data={swiper}
@@ -70,15 +67,12 @@ const Home = ({ navigation }) => {
                                                 <View>
                                                     <TouchableOpacity onPress={() => navigation.navigate(item.name)}>
                                                         <View>
-                                                            <Text style={theme.homeStyles.nameText}>{item.name}</Text>
+                                                            <Text style={theme.homeStyles.nameText} >{item.name}</Text>
                                                         </View>
-
-
                                                         <View style={theme.homeStyles.imageContain}>
                                                             <Image
                                                                 source={{ uri: item.req }}
                                                                 style={theme.homeStyles.image}
-
                                                             />
                                                         </View>
                                                     </TouchableOpacity>
@@ -91,8 +85,6 @@ const Home = ({ navigation }) => {
                             <View style={theme.homeStyles.gap}>
                             </View>
                         </ScrollView>
-
-
                     </View>
                 )
             }

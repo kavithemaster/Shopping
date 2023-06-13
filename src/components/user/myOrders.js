@@ -12,7 +12,8 @@ const MyOrders = ({navigation}) => {
     // Code for values grrting fro firebase by using key
     const getOrderData = async () => {
         const key = await AsyncStorage.getItem("userKey")
-        const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/orders.json`)
+        // const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}/orders.json`)
+        const res = await axios.get(`https://eshopping-15bdb-default-rtdb.firebaseio.com/shopping/${key}/orders.json`)
         let data = res.data
         let keys = Object.keys(res.data)
         let temp = []
@@ -39,7 +40,7 @@ const MyOrders = ({navigation}) => {
                                 text: "My Orders",
                                 style: theme.MyOrders.headerCenter
                             }}
-                            leftComponent={{ icon: "chevron-left", size: 32, color:"white",onPress: () => navigation.goBack() }}
+                            leftComponent={{ icon: "chevron-left", size: 32, color:"white",onPress: () => navigation.goBack() , testID:'iconLeft'}}
                         />
                         <View>
                             <ScrollView>
@@ -53,18 +54,18 @@ const MyOrders = ({navigation}) => {
 
 
                                                 <View >
-                                                    <Image source={{ uri: item.uri[0] }} style={theme.MyOrders.image} />
+                                                    <Image source={{ uri: item.uri[0] }} style={theme.MyOrders.image} testID='img' />
                                                 </View>
 
                                                 <View style={theme.MyOrders.nameContain}>
-                                                    <Text style={theme.MyOrders.nameText} >
+                                                    <Text style={theme.MyOrders.nameText}  testID='name'>
                                                         {item.name}
                                                     </Text>
                                                 </View>
 
                                                 <View style={theme.MyOrders.cart}>
                                                     <View>
-                                                        <Text style={theme.MyOrders.amountText}>
+                                                        <Text style={theme.MyOrders.amountText} testID='amount'>
                                                             Rs.{item.amount}
                                                         </Text>
                                                     </View>

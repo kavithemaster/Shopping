@@ -93,9 +93,9 @@ const Electronics = ({ navigation }) => {
                                 style: theme.electronicStyles.header
                             }}
                             placement="center"
-                            rightComponent={{ icon: "search", size: 32, color: "white", onPress: () => setVisible(!visible) }}
-
+                            rightComponent={{ icon: "search", size: 32, color: "white", onPress: () => setVisible(!visible), }}
                             leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack() }}
+                            testID="headerjest"
                         />
 
                         {
@@ -106,6 +106,7 @@ const Electronics = ({ navigation }) => {
                                     round
                                     value={search}
                                     onChangeText={(text) => updateSearch(text)}
+                                    testID="searchjest"
                                 />
                             </View> : null
                         }
@@ -115,6 +116,7 @@ const Electronics = ({ navigation }) => {
                                     data={result}
                                     scrollEnabled={false}
                                     keyExtractor={item => item.id}
+                                    testID="flatlistjest"
                                     renderItem={({ item }) => {
                                         if (item.fav == null) {
                                             item['fav'] = false
@@ -128,24 +130,28 @@ const Electronics = ({ navigation }) => {
                                             <View style={theme.electronicStyles.mainContain}>
 
                                                 <View style={theme.electronicStyles.imageConatiner}>
-                                                    <TouchableOpacity onPress={() => {
+                                                    <TouchableOpacity 
+                                                    testID="pdtjest"
+                                                    onPress={() => {
                                                         let temp = item
                                                         if (!temp.count) {
                                                             temp['count'] = 1
                                                         }
                                                         setProduct(temp),
                                                             navigation.navigate("Product")
-                                                    }}>
+                                                    }}                                                    
+                                                    >
                                                         <Image
                                                             source={{ uri: item.uri[0] }}
                                                             style={theme.electronicStyles.image}
+                                                            testID="imgjest"
                                                         />
                                                     </TouchableOpacity>
                                                 </View>
 
                                                 <View style={theme.electronicStyles.contain}>
                                                     <View>
-                                                        <Text style={theme.electronicStyles.text} onPress={() => { setProduct(item), navigation.navigate("Product") }}>{item.name}</Text>
+                                                        <Text style={theme.electronicStyles.text} onPress={() => { setProduct(item), navigation.navigate("Product") }} testID="textjest">{item.name}</Text>
                                                     </View>
 
                                                     <View style={theme.electronicStyles.amountContain}>
@@ -168,7 +174,9 @@ const Electronics = ({ navigation }) => {
                                                                 temp.add = true
                                                                 electronics[temp.id - 1] = temp
                                                             }}
-                                                            title={item.add ? "Added to Cart" : "Add to Cart"} />
+                                                            title={item.add ? "Added to Cart" : "Add to Cart"} 
+                                                            testID="btnjest"
+                                                            />
                                                     </View>
 
                                                 </View>

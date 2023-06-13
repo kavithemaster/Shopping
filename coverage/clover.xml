@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1686654343064" clover="3.2.0">
+  <project timestamp="1686654343064" name="All files">
+    <metrics statements="62" coveredstatements="46" conditionals="14" coveredconditionals="4" methods="18" coveredmethods="9" elements="94" coveredelements="59" complexity="0" loc="62" ncloc="62" packages="6" files="17" classes="17"/>
+    <package name="components.auth">
+      <metrics statements="46" coveredstatements="30" conditionals="14" coveredconditionals="4" methods="12" coveredmethods="8"/>
+      <file name="signin.js" path="D:\react native\Shopping\src\components\auth\signin.js">
+        <metrics statements="46" coveredstatements="30" conditionals="14" coveredconditionals="4" methods="12" coveredmethods="8"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="43" count="6" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="46" count="6" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="50" count="6" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="61" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="65" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="72" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="83" count="6" type="stmt"/>
+        <line num="87" count="6" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="128" count="0" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="shared">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
+      <file name="context.js" path="D:\react native\Shopping\src\shared\context.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="styles">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="deals.js" path="D:\react native\Shopping\src\styles\deals.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="home.js" path="D:\react native\Shopping\src\styles\home.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="myCart.js" path="D:\react native\Shopping\src\styles\myCart.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="splash.js" path="D:\react native\Shopping\src\styles\splash.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="themes.js" path="D:\react native\Shopping\src\styles\themes.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="styles.auth">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="signIn.js" path="D:\react native\Shopping\src\styles\auth\signIn.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+      <file name="signUp.js" path="D:\react native\Shopping\src\styles\auth\signUp.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="styles.products">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="electronics.js" path="D:\react native\Shopping\src\styles\products\electronics.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="fashion.js" path="D:\react native\Shopping\src\styles\products\fashion.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="grocery.js" path="D:\react native\Shopping\src\styles\products\grocery.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="mobiles.js" path="D:\react native\Shopping\src\styles\products\mobiles.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="productDetails.js" path="D:\react native\Shopping\src\styles\products\productDetails.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="styles.userStyles">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="myOrders.js" path="D:\react native\Shopping\src\styles\userStyles\myOrders.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="myWishlist.js" path="D:\react native\Shopping\src\styles\userStyles\myWishlist.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="profile.js" path="D:\react native\Shopping\src\styles\userStyles\profile.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

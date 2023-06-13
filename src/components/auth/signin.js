@@ -23,13 +23,21 @@ const SignIn = ({ navigation }) => {
 
     // Getting values from Firebase
     const getData = async () => {
-        const res = await axios.get("https://beast-4e018-default-rtdb.firebaseio.com//shopping.json")
-            .catch((err) => console.log("err", err))
-        if (res != null) {
-            setUserData(Object.values(res?.data))
-            setUserFullKey(Object.keys(res.data))
-            setUserFullData(res.data)
-        }
+      try{
+          // const res = await axios.get("https://beast-4e018-default-rtdb.firebaseio.com//shopping.json")
+          const res = await axios.get("https://eshopping-15bdb-default-rtdb.firebaseio.com//shopping.json")
+          if (res != null) {
+              setUserData(Object.values(res?.data))
+              setUserFullKey(Object.keys(res.data))
+              setUserFullData(res.data)
+          }
+          else{
+            console.log("err");
+          }
+      }
+      catch(err){
+        console.log('error');
+      }
     }
     // values for email and password
     const onEmailChangeHandler = e => {
@@ -59,7 +67,6 @@ const SignIn = ({ navigation }) => {
                     await AsyncStorage.setItem('login', 'true')
                     await AsyncStorage.setItem('user', JSON.stringify(uData))
                     setLogin(true)
-
                 }
             })
             if (!valid) {
@@ -85,7 +92,7 @@ const SignIn = ({ navigation }) => {
                             source={{ uri: "https://png.pngtree.com/png-clipart/20200701/original/pngtree-e-commerce-shopping-design-png-image_5342891.jpg" }}
                         />
                         <View style={theme.signInstyles.mainContain}>
-                            <Text style={theme.signInstyles.text}>Email Address</Text>
+                            <Text style={theme.signInstyles.text} >Email Address</Text>
                             <View style={theme.signInstyles.content}>
                                 <TextInput
                                     style={theme.signInstyles.textInput}
@@ -94,6 +101,7 @@ const SignIn = ({ navigation }) => {
                                     autoCapitalize={"none"}
                                     keyboardType="email-address"
                                     onChangeText={onEmailChangeHandler}
+                                    testID='emailjest'
                                 />
                             </View>
                         </View>
@@ -106,15 +114,20 @@ const SignIn = ({ navigation }) => {
                                     placeholderTextColor="white"
                                     onChangeText={onPasswordChangeHandler}
                                     secureTextEntry={!visible}
+                                    testID='passwordjest'
                                 />
                                 <Icon name={visible ? "eye" : "eye-slash"} size={25}
                                     onPress={() => { setVisible(!visible) }}
                                     style={theme.signInstyles.eyeIcon}
+                                    testID='eyejest'
                                 />
                             </View>
                         </View>
                         <View>
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("Forget")}
+                                testID='forgetjest'
+                            >
                                 <Text style={theme.signInstyles.forgotButton}>Forgot Password?</Text>
                             </TouchableOpacity>
                         </View>
@@ -122,12 +135,14 @@ const SignIn = ({ navigation }) => {
                         <TouchableOpacity
                             onPress={onAddHandler}
                             style={theme.signInstyles.submitButton}
+                            testID='loginjest'
                         >
                             <Text style={theme.signInstyles.buttonText}>LOGIN</Text>
                         </TouchableOpacity >
 
                         <TouchableOpacity
                             onPress={() => navigation.navigate("SignUp")}
+                            testID='signupjest'
                         >
                             <Text style={theme.signInstyles.signUpText}>SignUp !</Text>
                         </TouchableOpacity>

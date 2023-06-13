@@ -22,6 +22,8 @@ import Product from "../components/products/productDetails";
 import AppContext from "../shared/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Splash from "../components/splash";
+import Google from "../components/auth/google";
+import Facebook from "../components/auth/facebook";
 
 // Creating Navigator for stack and bottom
 const Stack = createNativeStackNavigator()
@@ -39,6 +41,8 @@ const AuthStack = () => {
                 <Stack.Screen name="SignIn" component={SignIn} />
                 <Stack.Screen name="SignUp" component={SignUp} />
                 <Stack.Screen name="Forget" component={ForgetPassword} />
+                <Stack.Screen name="google" component={Google} />
+                <Stack.Screen name="facebook" component={Facebook} />
             </Stack.Navigator>
         </NavigationContainer>
     )

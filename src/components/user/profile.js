@@ -38,7 +38,8 @@ const Profile = () => {
     // Getting user data from Firebase
     const getUSerData = async () => {
         let key = await AsyncStorage.getItem("userKey")
-        const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}.json`)
+        // const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}.json`)
+        const res = await axios.get(`https://eshopping-15bdb-default-rtdb.firebaseio.com/shopping/${key}.json`)
         setUserData(res.data);
     }
 
@@ -47,7 +48,8 @@ const Profile = () => {
     const onAddHandler = async (values) => {
         const data = { ...values, Password: userData.Password, ConformPassword: userData.ConformPassword }
         const key = await AsyncStorage.getItem("userKey")
-        const res = await axios.put(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}.json`, data)
+        // const res = await axios.put(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}.json`, data)
+        const res = await axios.put(`https://eshopping-15bdb-default-rtdb.firebaseio.com/shopping/${key}.json`, data)
         setUserData(res.data);
         setVisibility(false)
         ToastAndroid.show(
