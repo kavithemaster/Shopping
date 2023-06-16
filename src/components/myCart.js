@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Text, View, ScrollView } from "react-native";
-import { ActivityIndicator } from "react-native-paper"; 
+import { ActivityIndicator } from "react-native-paper";
 import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
 import Icons from "react-native-vector-icons/MaterialCommunityIcons"
 import AppContext from "../shared/context";
@@ -106,8 +106,8 @@ const MyCart = ({ navigation }) => {
                                 style: theme.myCartStyles.headerCenter
 
                             }}
-                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack() }}
-                            rightComponent={cart.length ? { icon: "check", size: 32, color: "white", onPress: () => placeOrder() } : null}
+                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack(), testID: 'header-back-button' }}
+                            rightComponent={cart.length ? { icon: "check", size: 32, color: "white", onPress: () => placeOrder(), testID: 'header-order-button' } : null}
                         />
                         {
                             load ?
@@ -119,8 +119,8 @@ const MyCart = ({ navigation }) => {
                                                     return (
                                                         <View
                                                             key={index}
-                                                            style={theme.myCartStyles.mainContainer}>
-
+                                                            style={theme.myCartStyles.mainContainer}
+                                                            testID="cart-items-container">
 
                                                             <View >
                                                                 <Image source={{ uri: item.uri[0] }} testID="imgjest" style={theme.myCartStyles.image} />
@@ -141,9 +141,7 @@ const MyCart = ({ navigation }) => {
                                                                         if (item.count - 1 > 0) {
                                                                             temp.count -= 1
                                                                             updateCount(temp)
-
                                                                         }
-
                                                                     }}
                                                                         testID="minusiconJest"
                                                                     />

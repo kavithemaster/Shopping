@@ -23,21 +23,21 @@ const SignIn = ({ navigation }) => {
 
     // Getting values from Firebase
     const getData = async () => {
-      try{
-          // const res = await axios.get("https://beast-4e018-default-rtdb.firebaseio.com//shopping.json")
-          const res = await axios.get("https://eshopping-15bdb-default-rtdb.firebaseio.com//shopping.json")
-          if (res != null) {
-              setUserData(Object.values(res?.data))
-              setUserFullKey(Object.keys(res.data))
-              setUserFullData(res.data)
-          }
-          else{
-            console.log("err");
-          }
-      }
-      catch(err){
-        console.log('error');
-      }
+        try {
+            // const res = await axios.get("https://beast-4e018-default-rtdb.firebaseio.com//shopping.json")
+            const res = await axios.get("https://eshopping-15bdb-default-rtdb.firebaseio.com//shopping.json")
+            if (res != null) {
+                setUserData(Object.values(res?.data))
+                setUserFullKey(Object.keys(res.data))
+                setUserFullData(res.data)
+            }
+            else {
+                console.log("err");
+            }
+        }
+        catch (err) {
+            console.log('error');
+        }
     }
     // values for email and password
     const onEmailChangeHandler = e => {

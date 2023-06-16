@@ -67,30 +67,30 @@ const Profile = () => {
                         <Header
                             centerComponent={{ text: "Profile", color:"white",style: theme.dealsStyles.header }}
                             placement='left'
-
+                            testID="headerJest"
                         />
                         <View>
                             
-                            <TouchableOpacity onPress={() => setVisibility(true)}>
-                                <Text style={theme.profileStyles.myProflieText}>Edit Your Profile 📝</Text>
+                            <TouchableOpacity onPress={() => setVisibility(true)} testID="editJest">
+                                <Text style={theme.profileStyles.myProflieText} testID="editTextJest">Edit Your Profile 📝</Text>
                             </TouchableOpacity>
                         </View>
-                        <TouchableOpacity>
-                        </TouchableOpacity>
                         <View style={theme.profileStyles.container}>
-                            <Text style={theme.profileStyles.mainText} >Email Address : {userData && userData.Email} </Text>
-                            <Text style={theme.profileStyles.mainText} >User Name: {userData && userData.UserName} </Text>
-                            <Text style={theme.profileStyles.mainText} >Phone Number : {userData && userData.PhoneNumber} </Text>
+                            <Text style={theme.profileStyles.mainText} testID="emailJest">Email Address : {userData && userData.Email} </Text>
+                            <Text style={theme.profileStyles.mainText} testID="userJest" >User Name: {userData && userData.UserName} </Text>
+                            <Text style={theme.profileStyles.mainText} testID="phoneJest">Phone Number : {userData && userData.PhoneNumber} </Text>
 
                             <View style={theme.profileStyles.contain}>
                                 <View>
                                     <Text style={theme.profileStyles.containText}
                                         onPress={() => navigation.navigate("MyOrders")}
+                                        testID="myOrderJest"
                                     >My Orders</Text>
                                 </View>
                                 <View>
                                     <Text style={theme.profileStyles.containText}
                                         onPress={() => navigation.navigate("MyWishlist")}
+                                        testID="myWishlistJest"
                                     >My Wishlist</Text>
                                 </View>
                             </View>
@@ -116,8 +116,9 @@ const Profile = () => {
 
                                     ])
                                 }}
+                                testID="alertJest"
                             >
-                                <Text style={theme.profileStyles.logoutText}>Logout</Text>
+                                <Text style={theme.profileStyles.logoutText} testID="logoutJest">Logout</Text>
                             </TouchableOpacity>
 
                         </View>
@@ -125,22 +126,24 @@ const Profile = () => {
                             visible={visibility}
                             transparent={true}
                             animationType="fade"
+                            testID="modalJest"
                         >
                             <Formik validationSchema={validation} initialValues={{ PhoneNumber: userData && userData.PhoneNumber, Email: userData && userData.Email, UserName: userData && userData.UserName }} onSubmit={(values) => onAddHandler(values)} >
                                 {({ values, handleChange, errors, touched, handleBlur, handleSubmit }) => {
                                     return (
                                         <View style={theme.profileStyles.formikMainContainer}>
-                                            <Text style={theme.profileStyles.text}> User Name  </Text>
+                                            <Text style={theme.profileStyles.text} testID="fUserJest"> User Name  </Text>
                                             <TextInput
                                                 placeholder="User Name"
                                                 style={theme.profileStyles.placeholderText}
                                                 onChangeText={handleChange("UserName")}
                                                 value={values.UserName}
                                                 onBlur={handleBlur("UserName")}
+                                                testID="ftUserJest"
                                             />
-                                            {errors ? (<Text style={theme.profileStyles.errorText}>{touched.UserName && errors.UserName}</Text>) : null}
+                                            {errors ? (<Text style={theme.profileStyles.errorText} testID="errorJest">{touched.UserName && errors.UserName}</Text>) : null}
 
-                                            <Text style={theme.profileStyles.text}> Phone Number </Text>
+                                            <Text style={theme.profileStyles.text} testID="fPhoneJest"> Phone Number </Text>
                                             <TextInput
                                                 placeholder="Phone Number"
                                                 style={theme.profileStyles.placeholderText}
@@ -148,13 +151,14 @@ const Profile = () => {
                                                 value={values.PhoneNumber}
                                                 keyboardType="numeric"
                                                 onBlur={handleBlur("PhoneNumber")}
+                                                testID="ftPhoneJest"
                                             />
-                                            {errors ? (<Text style={theme.profileStyles.errorText}>{touched.PhoneNumber && errors.PhoneNumber}</Text>) : null}
-                                            <TouchableOpacity style={theme.profileStyles.submitButton}>
-                                                <Text style={theme.profileStyles.submitText} onPress={handleSubmit}>Submit</Text>
+                                            {errors ? (<Text style={theme.profileStyles.errorText}testID="error1Jest">{touched.PhoneNumber && errors.PhoneNumber}</Text>) : null}
+                                            <TouchableOpacity style={theme.profileStyles.submitButton} testID="submitJest">
+                                                <Text style={theme.profileStyles.submitText} onPress={handleSubmit} testID="submitTestJest">Submit</Text>
                                             </TouchableOpacity>
-                                            <TouchableOpacity style={theme.profileStyles.closeButton}>
-                                                <Text style={theme.profileStyles.submitText} onPress={() => setVisibility(false)}>Close</Text>
+                                            <TouchableOpacity style={theme.profileStyles.closeButton} testID="closeJest">
+                                                <Text style={theme.profileStyles.submitText} onPress={() => setVisibility(false)} testID="closeButtonJest">Close</Text>
                                             </TouchableOpacity>
                                         </View>
                                     )

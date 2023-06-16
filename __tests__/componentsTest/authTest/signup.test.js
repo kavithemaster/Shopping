@@ -1,8 +1,8 @@
 import { render, fireEvent } from "@testing-library/react-native";
-import SignUp from "../src/components/auth/signup";
+import SignUp from "../../../src/components/auth/signup";
 import { ThemeProvider } from "react-native-elements";
-import theme from "../src/styles/themes";
-import AppContext from "../src/shared/context";
+import theme from "../../../src/styles/themes";
+import AppContext from "../../../src/shared/context";
 
 
 jest.mock('axios', () => ({ post: jest.fn(), create: jest.fn() }));

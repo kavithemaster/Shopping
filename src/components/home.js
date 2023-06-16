@@ -3,9 +3,12 @@ import { View, Text, FlatList, Image, TouchableOpacity, ScrollView } from "react
 import { Avatar, ThemeConsumer, Header } from "react-native-elements";
 import Data from '../assets/data/swiper.json'
 import Swiper from 'react-native-swiper';
+import { useNavigation } from '@react-navigation/native';
 
 
-const Home = ({ navigation }) => {
+const Home = () => {
+
+const navigation = useNavigation()
 
     // Getting values from json
     const swiper = Data.swiper
@@ -61,6 +64,7 @@ const Home = ({ navigation }) => {
                                     data={swiper}
                                     scrollEnabled={false}
                                     keyExtractor={item => item.id}
+                                    testID='newone'
                                     renderItem={({ item }) => {
                                         return (
                                             <View>
@@ -73,6 +77,7 @@ const Home = ({ navigation }) => {
                                                             <Image
                                                                 source={{ uri: item.req }}
                                                                 style={theme.homeStyles.image}
+                                                                testID='swiperImgJest'
                                                             />
                                                         </View>
                                                     </TouchableOpacity>

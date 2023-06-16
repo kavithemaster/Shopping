@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react-native'
-import ForgetPassword from '../src/components/auth/forgetPassword'
+import ForgetPassword from '../../../src/components/auth/forgetPassword'
 
 describe('ForgetPassword', () => {
   it('renders correctly', () => {

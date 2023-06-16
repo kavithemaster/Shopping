@@ -1,8 +1,8 @@
 import React from 'react'
 import { fireEvent, render } from '@testing-library/react-native'
 import { ThemeProvider } from 'react-native-elements'
-import Deals from '../src/components/deals'
-import theme from '../src/styles/themes'
+import Deals from '../../src/components/deals'
+import theme from '../../src/styles/themes'
 
 describe('Deals', () => {
   it('renders the "No offers available" text', () => {

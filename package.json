@@ -64,7 +64,7 @@
     "preset": "react-native",
     "collectCoverage": true,
     "transformIgnorePatterns": [
-      "node_modules/(?!(@react-native|react-native|react-native-elements|react-native-size-matters|@react-navigation/native|react-native-ratings|@react-native/polyfills|react-native-vector-icons|react-native-swiper|axios|react-native-popover-view/dist/Popover|@react-native-async-storage|async-storage|jest|async-storage-mock|react-native-base64)/)"
+      "node_modules/(?!(@react-native|react-native|react-native-elements|react-native-size-matters|react-test-renderer|@react-navigation/native|react-native-ratings|@react-native/polyfills|react-native-vector-icons|react-native-swiper|axios|react-native-popover-view/dist/Popover|@react-native-async-storage|async-storage|jest|async-storage-mock|react-native-base64)/)"
     ]
   }
 }

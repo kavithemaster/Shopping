@@ -4,11 +4,13 @@ import { ThemeConsumer, Header, Button, SearchBar } from "react-native-elements"
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Data from "../../assets/data/swiper.json"
 import AppContext from "../../shared/context";
+import { useNavigation } from "@react-navigation/native";
 
-const Electronics = ({ navigation }) => {
+const Electronics = () => {
 
     // Getting values from  json
     const electronics = Data.electronics
+    const navigation = useNavigation()
 
     // Using state and context  
     const { cart, setCart, setProduct } = useContext(AppContext)
@@ -46,7 +48,7 @@ const Electronics = ({ navigation }) => {
     }
 
 
-    // Getting values by using name and if else condition for add to cart
+    // Getting values by using name and id and if else condition for add to cart
     useEffect(() => {
         if (select) {
             if (cart.length) {
@@ -81,6 +83,10 @@ const Electronics = ({ navigation }) => {
         }
     }, [select])
 
+    const searchClick = ()=>{
+        setVisible(!visible)
+    }
+
     // Main code of execution
     return (
         <ThemeConsumer>
@@ -93,8 +99,8 @@ const Electronics = ({ navigation }) => {
                                 style: theme.electronicStyles.header
                             }}
                             placement="center"
-                            rightComponent={{ icon: "search", size: 32, color: "white", onPress: () => setVisible(!visible), }}
-                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack() }}
+                            rightComponent={{ icon: "search", size: 32, color: "white", onPress: () => searchClick(), testID: 'rightIconJest' }}
+                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack(), testID: "leftIconJest" }}
                             testID="headerjest"
                         />
 
@@ -117,7 +123,7 @@ const Electronics = ({ navigation }) => {
                                     scrollEnabled={false}
                                     keyExtractor={item => item.id}
                                     testID="flatlistjest"
-                                    renderItem={({ item }) => {
+                                    renderItem={({ item, index }) => {
                                         if (item.fav == null) {
                                             item['fav'] = false
                                         }
@@ -129,29 +135,29 @@ const Electronics = ({ navigation }) => {
                                             //Main View                                          
                                             <View style={theme.electronicStyles.mainContain}>
 
-                                                <View style={theme.electronicStyles.imageConatiner}>
-                                                    <TouchableOpacity 
-                                                    testID="pdtjest"
-                                                    onPress={() => {
-                                                        let temp = item
-                                                        if (!temp.count) {
-                                                            temp['count'] = 1
-                                                        }
-                                                        setProduct(temp),
-                                                            navigation.navigate("Product")
-                                                    }}                                                    
+                                                <View style={theme.electronicStyles.imageConatiner} >
+                                                    <TouchableOpacity
+                                                        testID={"pdtjest" + index.toString()}
+                                                        onPress={() => {
+                                                            let temp = item
+                                                            if (!temp.count) {
+                                                                temp['count'] = 1
+                                                            }
+                                                            setProduct(temp),
+                                                                navigation.navigate("Product")
+                                                        }}
                                                     >
                                                         <Image
                                                             source={{ uri: item.uri[0] }}
                                                             style={theme.electronicStyles.image}
-                                                            testID="imgjest"
+                                                            testID={"imgjest" + index.toString()}
                                                         />
                                                     </TouchableOpacity>
                                                 </View>
 
                                                 <View style={theme.electronicStyles.contain}>
                                                     <View>
-                                                        <Text style={theme.electronicStyles.text} onPress={() => { setProduct(item), navigation.navigate("Product") }} testID="textjest">{item.name}</Text>
+                                                        <Text style={theme.electronicStyles.text} onPress={() => { setProduct(item), navigation.navigate("Product") }} testID={"textjest" + index.toString()}>{item.name}</Text>
                                                     </View>
 
                                                     <View style={theme.electronicStyles.amountContain}>
@@ -174,9 +180,9 @@ const Electronics = ({ navigation }) => {
                                                                 temp.add = true
                                                                 electronics[temp.id - 1] = temp
                                                             }}
-                                                            title={item.add ? "Added to Cart" : "Add to Cart"} 
-                                                            testID="btnjest"
-                                                            />
+                                                            title={item.add ? "Added to Cart" : "Add to Cart"}
+                                                            testID={"buttons" + index.toString()}
+                                                        />
                                                     </View>
 
                                                 </View>
