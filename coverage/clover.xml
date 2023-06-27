@@ -1,42 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1686915734761" clover="3.2.0">
-  <project timestamp="1686915734761" name="All files">
-    <metrics statements="48" coveredstatements="18" conditionals="20" coveredconditionals="0" methods="20" coveredmethods="0" elements="88" coveredelements="18" complexity="0" loc="48" ncloc="48" packages="6" files="17" classes="17"/>
+<coverage generated="1687426081871" clover="3.2.0">
+  <project timestamp="1687426081871" name="All files">
+    <metrics statements="52" coveredstatements="36" conditionals="12" coveredconditionals="12" methods="23" coveredmethods="9" elements="87" coveredelements="57" complexity="0" loc="52" ncloc="52" packages="6" files="17" classes="17"/>
     <package name="components.user">
-      <metrics statements="32" coveredstatements="2" conditionals="20" coveredconditionals="0" methods="14" coveredmethods="0"/>
+      <metrics statements="36" coveredstatements="20" conditionals="12" coveredconditionals="12" methods="17" coveredmethods="9"/>
       <file name="profile.js" path="D:\react native\Shopping\src\components\user\profile.js">
-        <metrics statements="32" coveredstatements="2" conditionals="20" coveredconditionals="0" methods="14" coveredmethods="0"/>
+        <metrics statements="36" coveredstatements="20" conditionals="12" coveredconditionals="12" methods="17" coveredmethods="9"/>
         <line num="12" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
+        <line num="29" count="7" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
+        <line num="34" count="6" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="39" count="6" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="86" count="0" type="stmt"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="109" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="111" count="0" type="stmt"/>
-        <line num="131" count="0" type="cond" truecount="0" falsecount="6"/>
-        <line num="133" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="61" count="6" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="65" count="6" type="stmt"/>
+        <line num="69" count="6" type="stmt"/>
+        <line num="77" count="2" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="134" count="0" type="cond" truecount="6" falsecount="0"/>
+        <line num="136" count="8" type="stmt"/>
         <line num="161" count="0" type="stmt"/>
       </file>
     </package>

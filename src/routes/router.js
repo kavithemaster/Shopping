@@ -52,8 +52,8 @@ const AuthStack = () => {
 const ProductsTab = () => {
     return (
         <NavigationContainer>
-            <Bottom.Navigator>
-                <Bottom.Screen
+            <Bottom.Navigator testID="botNavTest">
+                <Bottom.Screen 
                     options={{
                         tabBarIcon: ({ focused }) => {
                             return (
@@ -62,6 +62,7 @@ const ProductsTab = () => {
                                     type={'ionicon'}
                                     size={focused ? 32 : 30}
                                     color={focused ? "blue" : "black"}
+                                    // testID="homeBotTest"
                                 />
                             )
                         }

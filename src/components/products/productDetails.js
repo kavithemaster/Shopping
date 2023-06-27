@@ -108,12 +108,14 @@ const Product = ({ navigation }) => {
         <ThemeConsumer>
             {
                 ({ theme }) =>
-                    <View style={theme.productDetails.mainContainer}>
+                    <View style={theme.productDetails.mainContainer}
+                    testID="productDetailsTest"
+                    >
                         <Header
-                            leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack() }}
+                            leftComponent={{ icon: "chevron-left",testID:'backTest', size: 32, color: "white", onPress: () => navigation.goBack() }}
                         />
                         <ScrollView>
-                            <View style={theme.productDetails.container}>
+                            <View style={theme.productDetails.container} testID="productDetailsTest1">
 
                                 <Icon
                                     name={product.fav ? "favorite" : "favorite-border"}
@@ -125,6 +127,7 @@ const Product = ({ navigation }) => {
                                         updateFav(temp)
                                     }}
                                     style={theme.productDetails.icon}
+                                    testID="favIconTest"
                                 />
 
                                 <View style={theme.productDetails.imgaeContain}>
@@ -158,8 +161,10 @@ const Product = ({ navigation }) => {
                                                                 }
                                                             })
                                                             colors = [...temp]
-                                                        }}>
-                                                            <Text style={[theme.productDetails.text, { color: item.color }]}>{item.label}</Text>
+                                                        }}
+                                                        testID="colorTest"
+                                                        >
+                                                            <Text style={[theme.productDetails.text, { color: item.color }]} >{item.label}</Text>
                                                         </TouchableOpacity>
                                                     )
                                                 })
@@ -194,7 +199,7 @@ const Product = ({ navigation }) => {
                                         titleStyle={theme.productDetails.title}
                                         buttonStyle={theme.productDetails.button}
                                         onPress={() => { addToCart() }}
-
+                                        testID="addToTest"
                                     />
                                 </View>
 

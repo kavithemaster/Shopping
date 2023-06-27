@@ -23,20 +23,15 @@ const SignIn = ({ navigation }) => {
 
     // Getting values from Firebase
     const getData = async () => {
-        try {
-            // const res = await axios.get("https://beast-4e018-default-rtdb.firebaseio.com//shopping.json")
-            const res = await axios.get("https://eshopping-15bdb-default-rtdb.firebaseio.com//shopping.json")
-            if (res != null) {
-                setUserData(Object.values(res?.data))
-                setUserFullKey(Object.keys(res.data))
-                setUserFullData(res.data)
-            }
-            else {
-                console.log("err");
-            }
+        // const res = await axios.get("https://beast-4e018-default-rtdb.firebaseio.com//shopping.json")
+        const res = await axios.get("https://eshopping-15bdb-default-rtdb.firebaseio.com//shopping.json")
+        if (res != null) {
+            setUserData(Object.values(res?.data))
+            setUserFullKey(Object.keys(res.data))
+            setUserFullData(res.data)
         }
-        catch (err) {
-            console.log('error');
+        else {
+            console.log("err");
         }
     }
     // values for email and password
@@ -84,7 +79,9 @@ const SignIn = ({ navigation }) => {
         <ThemeConsumer>
             {
                 ({ theme }) => (
-                    <View style={theme.signInstyles.container}>
+                    <View style={theme.signInstyles.container}
+                      testID="signInTest"
+                    >
                         <Avatar
                             rounded
                             size={170}

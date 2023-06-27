@@ -92,7 +92,9 @@ const Electronics = () => {
         <ThemeConsumer>
             {
                 ({ theme }) =>
-                    <View style={{ backgroundColor: "white" }}>
+                    <View style={{ backgroundColor: "white" }}
+                    testID="electronicsTest"
+                    >
                         <Header
                             centerComponent={{
                                 text: "Electronics",
@@ -103,9 +105,8 @@ const Electronics = () => {
                             leftComponent={{ icon: "chevron-left", size: 32, color: "white", onPress: () => navigation.goBack(), testID: "leftIconJest" }}
                             testID="headerjest"
                         />
-
                         {
-                            visible ? <View>
+                            visible ? <View testID="seachIconTest">
                                 <SearchBar lightTheme
                                     placeholder="Search Here"
                                     placeholderTextColor="black"
@@ -133,11 +134,12 @@ const Electronics = () => {
 
                                         return (
                                             //Main View                                          
-                                            <View style={theme.electronicStyles.mainContain}>
+                                            <View style={theme.electronicStyles.mainContain} testID="mainEleTest">
 
                                                 <View style={theme.electronicStyles.imageConatiner} >
                                                     <TouchableOpacity
                                                         testID={"pdtjest" + index.toString()}
+                                                        // testID="pdtjest"
                                                         onPress={() => {
                                                             let temp = item
                                                             if (!temp.count) {
@@ -171,7 +173,7 @@ const Electronics = () => {
                                                         </View>
 
                                                     </View>
-                                                    <View >
+                                                    <View  testID="cartTest">
                                                         <Button
                                                             titleStyle={theme.electronicStyles.title}
                                                             onPress={() => {
@@ -181,7 +183,7 @@ const Electronics = () => {
                                                                 electronics[temp.id - 1] = temp
                                                             }}
                                                             title={item.add ? "Added to Cart" : "Add to Cart"}
-                                                            testID={"buttons" + index.toString()}
+                                                            testID="buttons"
                                                         />
                                                     </View>
 

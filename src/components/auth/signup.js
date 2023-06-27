@@ -80,7 +80,7 @@ const SignUp = () => {
 
     // Main code of Execution using Formik
     return (
-        < View >
+        < View testID="signupTest">
             <Formik validationSchema={validationSchema} initialValues={Details} onSubmit={(values) => onAddHandler(values)}>
                 {({ values, handleChange, errors, touched, handleBlur, handleSubmit }) => {
                     const { Email, UserName, PhoneNumber, Password, ConformPassword } = values
@@ -89,7 +89,9 @@ const SignUp = () => {
                             {
                                 ({ theme }) => (
                                     <ScrollView>
-                                        <View style={theme.signUpStyles.container}>
+                                        <View style={theme.signUpStyles.container}
+                                         testID="signUpTest"
+                                        >
                                             <View>
                                                 <Avatar
 

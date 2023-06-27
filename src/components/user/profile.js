@@ -30,7 +30,7 @@ const Profile = () => {
     const [userData, setUserData] = useState([])
     const { setLogin } = useContext(AppContext)
 
-   // Rendering by using useEffect  
+    // Rendering by using useEffect  
     useEffect(() => {
         getUSerData()
     }, [])
@@ -39,13 +39,15 @@ const Profile = () => {
     const getUSerData = async () => {
         let key = await AsyncStorage.getItem("userKey")
         // const res = await axios.get(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}.json`)
-        const res = await axios.get(`https://eshopping-15bdb-default-rtdb.firebaseio.com/shopping/${key}.json`)
-        setUserData(res.data);
+        await axios.get(`https://eshopping-15bdb-default-rtdb.firebaseio.com/shopping/${key}.json`)
+        .then((res) => setUserData(res.data))
+        .catch((err) => console.log(err))
     }
 
 
     // Getting Values from useConntext to dislplay user details
     const onAddHandler = async (values) => {
+        console.log(values);
         const data = { ...values, Password: userData.Password, ConformPassword: userData.ConformPassword }
         const key = await AsyncStorage.getItem("userKey")
         // const res = await axios.put(`https://beast-4e018-default-rtdb.firebaseio.com/shopping/${key}.json`, data)
@@ -55,9 +57,10 @@ const Profile = () => {
         ToastAndroid.show(
             'Edited Successfully', ToastAndroid.BOTTOM, ToastAndroid.SHORT
         )
-
     }
-
+    const modPress = () => {
+        setVisibility(true)
+    }
     // Main Code Execution 
     return (
         <ThemeConsumer>
@@ -65,14 +68,14 @@ const Profile = () => {
                 ({ theme }) => (
                     <View style={theme.profileStyles.mainContainer}>
                         <Header
-                            centerComponent={{ text: "Profile", color:"white",style: theme.dealsStyles.header }}
+                            centerComponent={{ text: "Profile", color: "white", style: theme.dealsStyles.header }}
                             placement='left'
                             testID="headerJest"
                         />
                         <View>
-                            
-                            <TouchableOpacity onPress={() => setVisibility(true)} testID="editJest">
-                                <Text style={theme.profileStyles.myProflieText} testID="editTextJest">Edit Your Profile 📝</Text>
+
+                            <TouchableOpacity onPress={() => modPress()} testID="editJest">
+                                <Text style={theme.profileStyles.myProflieText} >Edit Your Profile</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={theme.profileStyles.container}>
@@ -141,8 +144,6 @@ const Profile = () => {
                                                 onBlur={handleBlur("UserName")}
                                                 testID="ftUserJest"
                                             />
-                                            {errors ? (<Text style={theme.profileStyles.errorText} testID="errorJest">{touched.UserName && errors.UserName}</Text>) : null}
-
                                             <Text style={theme.profileStyles.text} testID="fPhoneJest"> Phone Number </Text>
                                             <TextInput
                                                 placeholder="Phone Number"
@@ -153,7 +154,6 @@ const Profile = () => {
                                                 onBlur={handleBlur("PhoneNumber")}
                                                 testID="ftPhoneJest"
                                             />
-                                            {errors ? (<Text style={theme.profileStyles.errorText}testID="error1Jest">{touched.PhoneNumber && errors.PhoneNumber}</Text>) : null}
                                             <TouchableOpacity style={theme.profileStyles.submitButton} testID="submitJest">
                                                 <Text style={theme.profileStyles.submitText} onPress={handleSubmit} testID="submitTestJest">Submit</Text>
                                             </TouchableOpacity>

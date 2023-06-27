@@ -18,7 +18,9 @@ const navigation = useNavigation()
         <ThemeConsumer>
             {
                 ({ theme }) => (
-                    <View style={theme.homeStyles.mainContainer}>
+                    <View style={theme.homeStyles.mainContainer}
+                     testID='homeTest'
+                    >
                         <Header
                             centerComponent={{ text: "Shopping", style: theme.homeStyles.header }}
                             placement='left'
@@ -59,7 +61,7 @@ const navigation = useNavigation()
                                     }}
                                 />
                             </View>
-                            <View >
+                            <View testID='swiperTest' >
                                 <FlatList
                                     data={swiper}
                                     scrollEnabled={false}
@@ -69,7 +71,7 @@ const navigation = useNavigation()
                                         return (
                                             <View>
                                                 <View>
-                                                    <TouchableOpacity onPress={() => navigation.navigate(item.name)}>
+                                                    <TouchableOpacity onPress={() => navigation.navigate(item.name)} testID='productsTest'>
                                                         <View>
                                                             <Text style={theme.homeStyles.nameText} >{item.name}</Text>
                                                         </View>

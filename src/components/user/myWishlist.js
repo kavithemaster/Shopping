@@ -2,8 +2,11 @@ import React, { useContext } from "react";
 import { Text, View, ScrollView } from "react-native";
 import { ThemeConsumer, Header, Image, Button } from "react-native-elements";
 import AppContext from "../../shared/context";
+import { useNavigation } from "@react-navigation/native";
 
-const MyWishlist = ({ navigation }) => {
+const MyWishlist = () => {
+
+    const navigation= useNavigation()
     // Getting favourites from useContext
     const { favourites, setFavourites } = useContext(AppContext)
 
@@ -29,7 +32,8 @@ const MyWishlist = ({ navigation }) => {
                                 text: "My Wishlist",
                                 style: theme.myWishlist.headerCenter
                             }}
-                            leftComponent={{ icon: "chevron-left", color:"white",size: 32, onPress: () => navigation.goBack() }}
+                            leftComponent={{ icon: "chevron-left", testID:'leftJest', color:"white",size: 32, onPress: () => navigation.navigate('Profile') }}
+                            testID="headerJest"
                         />
                         {
                             favourites.length ?
@@ -83,7 +87,7 @@ const MyWishlist = ({ navigation }) => {
 
                                     </View>
                                 </ScrollView> : <View style={theme.myWishlist.emptyCart}>
-                                    <Text style={theme.myWishlist.emptyText}>Your Wishlist list is Empty</Text>
+                                    <Text style={theme.myWishlist.emptyText}  testID="emptyJest">Your Wishlist list is Empty</Text>
                                     <Image
                                         style={theme.myWishlist.emptyImage}
                                         source={{ uri: "https://cdn.dribbble.com/users/2070959/screenshots/5881187/copy_2.gif" }}

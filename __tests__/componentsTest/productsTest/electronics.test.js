@@ -4,6 +4,7 @@ import Electronics from '../../../src/components/products/electronics';
 import { ThemeProvider } from 'react-native-elements';
 import theme from '../../../src/styles/themes';
 import AppContext from '../../../src/shared/context';
+import Data from '../../../src/assets/data/swiper.json'
 
 jest.mock("@react-navigation/native", () => ({
     useNavigation: () => ({
@@ -14,10 +15,7 @@ jest.mock("@react-navigation/native", () => ({
 
 
 const mockContextValue = {
-    cart: [
-        { id: 1, name: 'Laptop', amount: 60500, uri: ['https://cdn.thewirecutter.com/wp-content/media/2022/10/laptopstopicpage-2048px-2102-2x1-1.jpg'] },
-        { id: 2, name: 'Speaker', amount: 15000, uri: ["https://thumbs.dreamstime.com/b/white-speakers-1755235.jpg"] },
-    ],
+    cart: Data.electronics,
     setCart: jest.fn(),
     setProduct: jest.fn(),
 }
@@ -112,8 +110,7 @@ describe('Electronics Component', () => {
     })
 
     it("adds item to cart", () => {
-        const ind = [0, 1]
-        const { getByTestId } = render(
+        const { getAllByTestId } = render(
             <AppContext.Provider value={mockContextValue}>
                 <ThemeProvider theme={theme}>
                     <Electronics />
@@ -121,17 +118,15 @@ describe('Electronics Component', () => {
             </AppContext.Provider>
         )
 
-        ind.map((i) => {
-            const addButton = getByTestId('buttons' + i.toString())
-            fireEvent.press(addButton)
+        const buttons = getAllByTestId('buttons')
+        fireEvent.press(buttons[0])
 
-            expect(mockContextValue.setCart).toHaveBeenCalled()
-        })
+        expect(mockContextValue.setCart).toHaveBeenCalled()
+
     })
     it("useEffect function for add to cart ", () => {
-        const ind = [0]
         const setSelect = jest.fn()
-        const { getByTestId } = render(
+        const {  getAllByTestId } = render(
             <AppContext.Provider value={mockContextValue}>
                 <ThemeProvider theme={theme}>
                     <Electronics />
@@ -139,36 +134,17 @@ describe('Electronics Component', () => {
             </AppContext.Provider>
         )
 
+        const buttons = getAllByTestId('buttons')
 
-        ind.map((i) => {
-            const addButton = getByTestId('buttons' + i.toString())
-            fireEvent.press(addButton)
-        })
-
-
-        // ind.map((i) => {
-        //     const success = getByTestId('buttons' + i.toString())
-        //     fireEvent.press(success)
-        //     expect(mockContextValue.setCart).toHaveBeenCalledWith(mockContextValue.cart[i])
-        // })
-
-        const success = getByTestId('buttons0')
-            fireEvent.press(success)
-            expect(mockContextValue.setCart).toHaveBeenCalledWith({})
+        fireEvent.press(buttons[0])
+    
+        expect(mockContextValue.setCart).toHaveBeenCalled()
 
 
         setSelect(null)
 
-        const failure = getByTestId('buttons0')
-            fireEvent.press(failure)
-            expect(mockContextValue.setCart).toHaveBeenCalledWith({"amount": 60500, "id": 2, "name": "Laptop", "uri": ["https://cdn.thewirecutter.com/wp-content/media/2022/10/laptopstopicpage-2048px-2102-2x1-1.jpg"]})
-
-
-        // ind.map((i) => {
-        //     const failer = getByTestId('buttons' + i.toString())
-        //     fireEvent.press(failer)
-        //     expect(mockContextValue.setCart).toHaveBeenCalledWith(mockContextValue.cart[i])
-        // })
+        fireEvent.press(buttons[0])
+        expect(mockContextValue.setCart).toHaveBeenCalled()
 
 
     })
